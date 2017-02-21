@@ -23,7 +23,7 @@ El panel de gestión permitirá a los administradores de la web acceder mediante
 
 Todas estas operaciones se realizarán mediante un interfaz web que permita realizar las operaciones de altas, bajas, modificaciones y consultas. La administración de los proveedores se realizará siempre que se deban modificar los datos de dicho proveedor. Permitirá en tiempo real visualizar la cantidad disponible para que el administrador lo descatalogue de la web. La gestión de los usuarios se llevará a cabo bajo petición del usuario.
 
-### Usuario registrado (web privada)
+#### Usuario registrado (web privada)
 La web privada permitirá realizar las siguientes operaciones:
 
 * Historial de pedidos.
@@ -32,20 +32,20 @@ La web privada permitirá realizar las siguientes operaciones:
 * Acciones relacionadas con sus datos personales.
 
 
-### Web pública
+#### Web pública
 La web pública permitirá realizar las siguientes operaciones:
 
 * Consultar los productos.
 * Registrarse en la web.
 
-### Público objetivo
+#### Público objetivo
 El panel de gestión está destinada a los empleados administradores de la compañía que gestionaran todos los procesos de gestión.
 
 La web privada está destinada a los usuarios registrados, que deseen comprar productos.
 
 La web pública está destinada al público general sin necesidad de que se registren para visualizar el contenido.
 
-## Grupo de trabajo
+### Grupo de trabajo
 * Alejandro Oliver Ruiz
 * Pablo Mateo Pérez
 * Francisco Manuel Cámara Saura
