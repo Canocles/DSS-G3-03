@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PedidoTableSeeder extends Seeder
+class PedidosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,29 +11,29 @@ class PedidoTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pedido')->delete();
+        DB::table('pedidos')->delete();
 
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
             'fecha' => date(),
             'id_usuario' => 1
         ]);
 
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
             'fecha' => date(),
             'id_usuario' => 2
         ]);
 
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
             'fecha' => date(),
             'id_usuario' => 3
         ]);
 
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
             'fecha' => date(),
             'id_usuario' => 4
         ]);
         
-        DB::table('pedido')->insert([
+        DB::table('pedidos')->insert([
             'fecha' => date(),
             'id_usuario' => 5
         ]);
