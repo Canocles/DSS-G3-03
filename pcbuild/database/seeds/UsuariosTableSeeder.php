@@ -51,7 +51,6 @@ class UsuariosTableSeeder extends Seeder
             'apellidos' => 'Scwarzenegger',
             'telefono' => 555555555,
             'fechaNacimiento' => '30/06/1947'
-        ]);
-        
+        ]);  
     }
 }

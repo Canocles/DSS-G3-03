@@ -14,27 +14,27 @@ class PedidosTableSeeder extends Seeder
         DB::table('pedidos')->delete();
 
         DB::table('pedidos')->insert([
-            'fecha' => date(),
+            'fecha' => date('d/m/Y'),
             'id_usuario' => 1
         ]);
 
         DB::table('pedidos')->insert([
-            'fecha' => date(),
+            'fecha' => date('d/m/Y'),
             'id_usuario' => 2
         ]);
 
         DB::table('pedidos')->insert([
-            'fecha' => date(),
+            'fecha' => date('d/m/Y'),
             'id_usuario' => 3
         ]);
 
         DB::table('pedidos')->insert([
-            'fecha' => date(),
+            'fecha' => date('d/m/Y'),
             'id_usuario' => 4
         ]);
         
         DB::table('pedidos')->insert([
-            'fecha' => date(),
+            'fecha' => date('d/m/Y'),
             'id_usuario' => 5
         ]);
     }
