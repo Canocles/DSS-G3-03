@@ -79,4 +79,8 @@ class Usuario extends Model
     public function setPedidos($pedidos) {
         $this->pedidos = $pedidos;
     }
+
+    public function pedidos() {
+        return $this->hasMany('App\Pedido');
+    }
 }
