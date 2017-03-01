@@ -13,7 +13,7 @@ class CreateLinpedidoTable extends Migration
      */
     public function up()
     {
-        Schema::create('linpedido', function (Blueprint $table) {
+        Schema::create('linpedidos', function (Blueprint $table) {
             $table->integer('num');
             $table->integer('cantidad');
             $table->integer('producto');

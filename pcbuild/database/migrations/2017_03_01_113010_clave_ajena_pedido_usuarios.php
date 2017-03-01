@@ -14,6 +14,7 @@ class ClaveAjenaPedidoUsuarios extends Migration
     public function up()
     {
         Schema::table('pedidos', function (Blueprint $table) {
+            //$table->integer('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
