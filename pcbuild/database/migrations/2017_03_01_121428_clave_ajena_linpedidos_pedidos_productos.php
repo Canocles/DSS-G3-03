@@ -14,8 +14,8 @@ class ClaveAjenaLinpedidosPedidosProductos extends Migration
     public function up()
     {
         Schema::table('linpedidos', function (Blueprint $table) {
-            $table->foreign('producto')->references('id')->on('productos');
-            $table->foreign('pedido')->references('id')->on('pedidos');
+            $table->foreign('producto')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('pedido')->references('id')->on('pedidos')->onDelete('cascade');
         });
     }
 

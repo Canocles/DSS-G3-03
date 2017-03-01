@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class LinpedidoTableSeeder extends Seeder
+class LinpedidosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -64,13 +64,6 @@ class LinpedidoTableSeeder extends Seeder
 
         DB::table('linpedidos')->insert([
             'num' => 3,
-            'cantidad' => 1,
-            'producto' => 2,
-            'pedido' => 3
-        ]);
-
-        DB::table('linpedidos')->insert([
-            'num' => 4,
             'cantidad' => 1,
             'producto' => 5,
             'pedido' => 3
