@@ -19,8 +19,8 @@ class CreateLinpedidoTable extends Migration
             $table->integer('producto');
             $table->integer('pedido');
             $table->primary(['num', 'producto']);
-            $table->foreign('producto')->references('id')->on('productos');
-            $table->foreign('pedido')->references('id')->on('pedidos');
+            //$table->foreign('producto')->references('id')->on('productos');
+            //$table->foreign('pedido')->references('id')->on('pedidos');
             $table->timestamps();
         });
     }

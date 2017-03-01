@@ -17,7 +17,7 @@ class CreatePedidoTable extends Migration
             $table->increments('id');
             $table->string('fecha');
             $table->integer('id_usuario')->unsigned();
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            //$table->foreign('id_usuario')->references('id')->on('usuarios');
             $table->timestamps();
         });
     }
