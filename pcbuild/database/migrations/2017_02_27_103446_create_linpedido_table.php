@@ -32,6 +32,6 @@ class CreateLinpedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linpedido');
+        Schema::dropIfExists('linpedidos');
     }
 }
