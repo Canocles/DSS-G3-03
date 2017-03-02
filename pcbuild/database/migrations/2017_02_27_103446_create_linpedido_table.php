@@ -19,8 +19,8 @@ class CreateLinpedidoTable extends Migration
             $table->integer('producto');
             $table->integer('pedido');
             $table->primary(['num', 'pedido']);
-            //$table->foreign('producto')->references('id')->on('productos');
-            //$table->foreign('pedido')->references('id')->on('pedidos');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +32,9 @@ class CreateLinpedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linpedidos');
+        Schema::dropIfExists('linpedidos', function (Blieprint $table) {
+            $table->dropForeign('linpedidos_producto_foreign');
+            $table->dropForeign('linpedidos_pedido_foreign');
+        });
     }
 }
