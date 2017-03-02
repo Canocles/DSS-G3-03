@@ -10,7 +10,7 @@ class Pedido extends Model
 		return $this->belongsTo('App\Usuario');
 	}
     
-    public function linPedidos() {
-        return $this->hasMany('App\LinPedido');
+    public function linpedidos() {
+        return $this->hasMany('App\Linpedido');
     }
 }

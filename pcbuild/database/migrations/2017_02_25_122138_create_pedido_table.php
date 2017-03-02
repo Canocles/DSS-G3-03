@@ -30,7 +30,7 @@ class CreatePedidoTable extends Migration
     public function down()
     {
         Schema::dropIfExists('pedidos', function (Blieprint $table) {
-            $table->dropForeign('pedidos_id_usuario_foreign');
+            $table->dropForeign('pedidos_usuario_id_foreign');
         });
     }
 }

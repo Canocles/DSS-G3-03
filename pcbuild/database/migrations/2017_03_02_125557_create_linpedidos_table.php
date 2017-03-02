@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLinpedidoTable extends Migration
+class CreateLinpedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,9 +16,9 @@ class CreateLinpedidoTable extends Migration
         Schema::create('linpedidos', function (Blueprint $table) {
             $table->integer('num');
             $table->integer('cantidad');
-            $table->integer('producto');
-            $table->integer('pedido');
-            $table->primary(['num', 'pedido']);
+            $table->integer('producto_id');
+            $table->integer('pedido_id');
+            $table->primary(['num', 'pedido_id']);
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();
@@ -33,8 +33,8 @@ class CreateLinpedidoTable extends Migration
     public function down()
     {
         Schema::dropIfExists('linpedidos', function (Blieprint $table) {
-            $table->dropForeign('linpedidos_producto_foreign');
-            $table->dropForeign('linpedidos_pedido_foreign');
+            $table->dropForeign('linpedidos_producto_id_foreign');
+            $table->dropForeign('linpedidos_pedido_id_foreign');
         });
     }
 }

@@ -58,7 +58,7 @@ class LinpedidosTableSeeder extends Seeder
         DB::table('linpedidos')->insert([
             'num' => 2,
             'cantidad' => 1,
-            'producto' => 4,
+            'producto_id' => 4,
             'pedido_id' => 3
         ]);
 
