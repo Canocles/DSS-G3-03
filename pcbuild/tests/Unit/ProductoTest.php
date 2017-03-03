@@ -64,4 +64,21 @@ class ProductoTest extends TestCase
         };
         $this->assertEquals($noExisteProducto($productoBorrado), true);
     }
+
+    // Prueba específica para probar si al eliminar un usuario o producto
+    // también se borran sus respectivos pedidos y líneas de pedidos.
+    // Comentar la función en caso de querer repetir las pruebas anteriores
+    // SI NO comentas esta función, para volver a poblar la base de datos
+    // HACER: php artisan migrate:refresh --seed
+    public function testOnDeleteCascade() {
+        $producto = Producto::find(1);
+        $productoBuscado = Linpedido::where('producto_id', '=', $producto->id)->first()->producto;
+        $this->assertEquals($producto, $productoBuscado);
+
+        $usuario = Usuario::find(3);
+        $usuario->delete();
+        $this->assertEquals(Pedido::find(3), NULL);
+        $producto->delete();
+        $this->assertEquals(Linpedido::where('pedido_id', '=', 3)->first(), NULL);
+    }
 }

@@ -16,12 +16,9 @@ class CreatePedidoTable extends Migration
         Schema::create('pedidos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fecha');
-            $table->integer('usuario_id')->unsigned();
-            $table->timestamps();
-        });
-
-        Schema::table('pedidos', function (Blueprint $table) {
+            $table->integer('usuario_id')->unsigned()->index();
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -32,8 +29,6 @@ class CreatePedidoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pedidos', function (Blieprint $table) {
-            $table->dropForeign('pedidos_usuario_id_foreign');
-        });
+        Schema::dropIfExists('pedidos');
     }
 }
