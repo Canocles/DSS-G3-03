@@ -12,8 +12,28 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProductoTest extends TestCase
 {
+
+    public function testRelacionExtremoAExtremo() {
+        $productos = Producto::all();
+        foreach($productos as $producto) {
+            $linpedido = $producto->linpedido;
+            if ($linpedido != NULL) {
+                $pedido = $linpedido->pedido;
+                $usuario = $pedido->usuario;
+                $this->assertEquals($usuario->id, $pedido->usuario_id);
+                $this->assertEquals($pedido->id, $linpedido->pedido_id);
+            }
+        }
+    }
+
     public function testRelacionLinpedido() {
-        
+        $productos = Producto::all();
+        foreach($productos as $producto) {
+            $linpedido = $producto->linpedido;
+            if ($linpedido != NULL) {
+                $this->assertEquals($linpedido->producto_id, $producto->id);
+            }
+        }
     }
 
     public function testInsertarProducto() {

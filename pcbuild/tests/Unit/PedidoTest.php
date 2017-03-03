@@ -25,8 +25,8 @@ class PedidoTest extends TestCase
     public function testRelacionUsuario() {
         $pedidos = Pedido::all();
         foreach($pedidos as $pedido) {
-            $usuario = Pedido::find($pedido->usuario_id)->usuario->id;
-            $this->assertEquals($usuario, $pedido->usuario_id);
+            $usuario = $pedido->usuario;
+            $this->assertEquals($usuario->id, $pedido->usuario_id);
         }
     }
 

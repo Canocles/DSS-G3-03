@@ -12,8 +12,20 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LinpedidoTest extends TestCase
 {
-    public function testRelacionLinpedido() {
-        
+    public function testRelacionPedido() {
+        $linpedidos = Linpedido::all();
+        foreach($linpedidos as $linpedido) {
+            $pedido = $linpedido->pedido;
+            $this->assertEquals($linpedido->pedido_id, $pedido->id);
+        }
+    }
+
+    public function testRelacionProducto() {
+        $linpedidos = Linpedido::all();
+        foreach($linpedidos as $linpedido) {
+            $producto = $linpedido->producto;
+            $this->assertEquals($producto->id, $linpedido->producto_id);
+        }
     }
 
     public function testInsertarLinpedido() {
