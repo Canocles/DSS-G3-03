@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UsuarioTest extends TestCase
 {
-    public function testRelacion1() {
+    public function testRelacionTotal() {
         $pedidos = Usuario::find(1)->pedidos;
         // Pese a que esta prueba es únicamente de Usuario
         // hemos decidido, realizar una prueba navegando por
@@ -34,7 +34,7 @@ class UsuarioTest extends TestCase
         $this->assertEquals($pedidos[1]->id, 6);
     }
 
-    public function testRelacion2() {
+    public function testRelacionPedido() {
         $usuariosConPedidos = Usuario::has('pedidos')->get();
         foreach($usuariosConPedidos as $usuarioConPedido) {
             $this->assertEquals($usuarioConPedido, 
@@ -66,6 +66,6 @@ class UsuarioTest extends TestCase
     }
 
     public function testBorrarUsuario() {
-        $usuarios = Usuario::where('nombre', '=', 'Cloud')->delete();
+        $usuario = Usuario::where('nombre', '=', 'Cloud')->delete();
     }
 }
