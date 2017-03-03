@@ -66,6 +66,6 @@ class UsuarioTest extends TestCase
     }
 
     public function testBorrarUsuario() {
-        $usuario = Usuario::where('nombre', '=', 'Cloud')->delete();
+        $usuarios = Usuario::where('nombre', '=', 'Cloud')->delete();
     }
 }

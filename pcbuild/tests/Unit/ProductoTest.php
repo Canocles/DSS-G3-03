@@ -12,10 +12,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProductoTest extends TestCase
 {
-    public function testRelacionTotal() {
-
-    }
-
     public function testRelacionLinpedido() {
 
     }
