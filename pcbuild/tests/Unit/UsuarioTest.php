@@ -42,20 +42,30 @@ class UsuarioTest extends TestCase
         }
     }
 
-    public function testTablaUsuario() {
+    public function testInsertarUsuario() {
         // Insertamos un usuario;
         $usuario = new Usuario();
-        $usuario->nombre = 'Javier';
-        $usuario->email = 'Javier@pcbuild.com';
-        $usuario->apellidos = 'Gonzalez';
+        $usuario->nombre = 'Cloud';
+        $usuario->email = 'Cloud@pcbuild.com';
+        $usuario->apellidos = 'Strife';
         $usuario->telefono = '654987321';
         $usuario->fechaNacimiento = '22/06/1985';
         $usuario->save();
-        /*
-        $usuario->pedidos()->saveMany([]
+        $idInsertado = $usuario->id;
 
-        ]);
-        */
-        $usuario->delete();
+        $this->assertEquals(Usuario::find($idInsertado)->nombre, 'Cloud');
+    }
+
+    public function testActualizarUsuario() {
+        $usuario = Usuario::where('nombre', '=', 'Cloud')->first();
+        $this->assertEquals(Usuario::find($usuario->id)->email, 'Cloud@pcbuild.com');
+        $usuario->email = 'ElmejorPJdelMundo@pcbuild.com';
+        $usuario->save();
+
+        $this->assertEquals(Usuario::find($usuario->id)->email, 'ElmejorPJdelMundo@pcbuild.com');
+    }
+
+    public function testBorrarUsuario() {
+        $usuarios = Usuario::where('nombre', '=', 'Cloud')->delete();
     }
 }

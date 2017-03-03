@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Usuario;
 
 class UsuariosTableSeeder extends Seeder
 {
@@ -51,6 +52,13 @@ class UsuariosTableSeeder extends Seeder
             'apellidos' => 'Scwarzenegger',
             'telefono' => 555555555,
             'fechaNacimiento' => '30/06/1947'
-        ]);  
+        ]);
+
+        $usuario = new Usuario(['nombre' => 'Javier',
+                                'email' => 'Javier@pcbuild.com',
+                                'apellidos' => 'Gutierrez',
+                                'telefono' => 696363545,
+                                'fechaNacimiento' => '25/08/2012']);
+        $usuario->save();
     }
 }
