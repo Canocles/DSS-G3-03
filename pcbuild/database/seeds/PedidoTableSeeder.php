@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Usuario;
+use App\Pedido;
 
 class PedidosTableSeeder extends Seeder
 {

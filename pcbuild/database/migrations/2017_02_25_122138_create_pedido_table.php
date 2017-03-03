@@ -17,8 +17,11 @@ class CreatePedidoTable extends Migration
             $table->increments('id');
             $table->string('fecha');
             $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
+        });
+
+        Schema::table('pedidos', function (Blueprint $table) {
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

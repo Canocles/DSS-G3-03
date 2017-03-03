@@ -19,9 +19,12 @@ class CreateLinpedidosTable extends Migration
             $table->integer('producto_id');
             $table->integer('pedido_id');
             $table->primary(['num', 'pedido_id']);
+            $table->timestamps();
+        });
+
+        Schema::table('linpedidos', function (Blueprint $table) {
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 

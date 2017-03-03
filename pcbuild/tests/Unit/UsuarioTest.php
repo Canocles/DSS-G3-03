@@ -52,7 +52,6 @@ class UsuarioTest extends TestCase
         $usuario->fechaNacimiento = '22/06/1985';
         $usuario->save();
         $idInsertado = $usuario->id;
-
         $this->assertEquals(Usuario::find($idInsertado)->nombre, 'Cloud');
     }
 
@@ -61,11 +60,17 @@ class UsuarioTest extends TestCase
         $this->assertEquals(Usuario::find($usuario->id)->email, 'Cloud@pcbuild.com');
         $usuario->email = 'ElmejorPJdelMundo@pcbuild.com';
         $usuario->save();
-
         $this->assertEquals(Usuario::find($usuario->id)->email, 'ElmejorPJdelMundo@pcbuild.com');
     }
 
     public function testBorrarUsuario() {
-        $usuarios = Usuario::where('nombre', '=', 'Cloud')->delete();
+        $usuario = Usuario::where('nombre', '=', 'Cloud')->delete();
+        $usuarioBorrado = Usuario::where('nombre', '=', 'Cloud')->first();
+        $noExisteUsuario = function ($usuarioBorrado) {
+            if ($usuarioBorrado == NULL)
+                return true;
+            return false;
+        };
+        $this->assertEquals($noExisteUsuario($usuarioBorrado), true);
     }
 }
