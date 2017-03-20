@@ -10,4 +10,7 @@ class Producto extends Model
     public function linpedido(){
 		return $this->hasOne('App\Linpedido');
 	}
+	public function categoria(){
+		return $this->hasOne('App\Categoria');
+	}
 }
