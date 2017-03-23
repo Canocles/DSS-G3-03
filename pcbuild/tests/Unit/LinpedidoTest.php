@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Usuario;
+use App\User;
 use App\Pedido;
 use App\Linpedido;
 use App\Producto;

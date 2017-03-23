@@ -2,7 +2,7 @@
 
 namespace Tests\Unit;
 
-use App\Usuario;
+use App\User;
 use App\Pedido;
 use App\Linpedido;
 use App\Producto;
@@ -25,21 +25,21 @@ class PedidoTest extends TestCase
     public function testRelacionUsuario() {
         $pedidos = Pedido::all();
         foreach($pedidos as $pedido) {
-            $usuario = $pedido->usuario;
-            $this->assertEquals($usuario->id, $pedido->usuario_id);
+            $usuario = $pedido->user;
+            $this->assertEquals($usuario->id, $pedido->user_id);
         }
     }
 
     public function testInsertarPedido() {
-        $usuario = Usuario::where('nombre', '=', 'Javier')->first();
+        $usuario = User::where('nombre', '=', 'Javier')->first();
         $pedido = new Pedido();
         $pedido->fecha =  date('d/m/Y');
-        $pedido->usuario()->associate($usuario);
+        $pedido->user()->associate($usuario);
         $pedido->save();
     }
     
     public function testActualizarPedido() {
-        $pedido = Pedido::where('usuario_id','=', '6')->first();
+        $pedido = Pedido::where('user_id','=', '6')->first();
         $this->assertEquals(Pedido::find($pedido->id)->fecha, date('d/m/Y'));
         $pedido->fecha = '25/02/2016';
         $pedido->save();
@@ -47,8 +47,8 @@ class PedidoTest extends TestCase
     }
 
     public function testEliminarPedido() {
-        $pedido = Pedido::where('usuario_id', '=', '6')->delete();
-        $pedidoBorrado = Pedido::where('usuario_id','=', '6')->first();
+        $pedido = Pedido::where('user_id', '=', '6')->delete();
+        $pedidoBorrado = Pedido::where('user_id','=', '6')->first();
         $noExistePedido = function ($pedidoEliminado) {
             if ($pedidoEliminado == NULL)
                 return true;

@@ -13,10 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (config('database.default') == 'sqlite') {
+        if (config('database.sqlite') == 'sqlite') {
 			$db = app()->make('db');
 			$db->connection()->getPdo()->exec("PRAGMA foreign_keys = ON");
-		}
+        }
     }
 
     /**

@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
     public $timestamps = false;
-    public function usuario() {
-		return $this->belongsTo('App\Usuario');
+    public function user() {
+		return $this->belongsTo('App\User');
 	}
     
     public function linpedidos() {
