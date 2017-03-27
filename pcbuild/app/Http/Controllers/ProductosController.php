@@ -29,7 +29,8 @@ class ProductosController extends Controller
     }
 
     public function buscarNombreCategoria($nombreProducto, $nombreCategoria){
-        $idCategoria = DB::table('categorias')->where('nombre', $nombreCategoria)->first();
+        $categoria = DB::table('categorias')->where('nombre', $nombreCategoria)->first();
+        $idCategoria = $categoria->id;
         
         $productos = DB::table('productos')->where([
             ['nombre', $nombreProducto],
