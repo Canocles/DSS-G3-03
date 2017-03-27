@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('nombre');
             $table->float('precio');
             $table->string('descripcion')->nullable();
+            $table->string('urlImagen')->default('pordefecto.jpg');
             $table->integer('categoria')->nullable()->index();
             $table->foreign('categoria')->references('id')->on('categorias')->onDelete('cascade');
             $table->timestamps();
