@@ -1,4 +1,4 @@
- @if($productos)
+
                             @foreach($productos as $item){
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
@@ -25,9 +25,4 @@
                                     </div>
                                 </div>
                             </div>
-                            }
-                            @else
-                                <div class="col-sm-4">
-                                    <p>No hay productos</p>
-                                </div>
-                            @endif
+                            @endforeach

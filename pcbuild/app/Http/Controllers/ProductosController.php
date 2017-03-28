@@ -10,7 +10,7 @@ class ProductosController extends Controller
     public function dameTodos(){
         $productos = DB::table('productos')->get();
        // return $productos;
-	   return View::make('public.productos')->with('productos',$productos);
+	   return View::make('producto.listadoProductos')->with('listadoProductos',$productos);
     }
     
     public function buscaID($id){

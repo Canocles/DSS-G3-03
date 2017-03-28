@@ -1,6 +1,4 @@
-<?php 
-include 'header.inc.php';
-?>
+<?php include 'header.blade.php'; ?>
 <section>
             <div class="container">
                 <div class="row">
@@ -38,12 +36,11 @@ include 'header.inc.php';
                     <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">Features Items</h2>
-                            <?php include('productos.blade.php');?>
+                            <?php include 'producto/productos.blade.php';?>
                         </div><!--features_items-->
                     </div>
                 </div>
             </div>
         </section>
-<?php
-include 'footer.inc.php'
-?>
+
+<?php include 'footer.blade.php'; ?>
