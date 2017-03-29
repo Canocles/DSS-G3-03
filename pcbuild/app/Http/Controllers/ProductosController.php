@@ -9,9 +9,10 @@ class ProductosController extends Controller
 	//Consultas y búsquedas
     public function dameTodos(){
         $productos = DB::table('productos')->get();
+		
        // return $productos;
-	   return View::make('producto.listadoProductos')->with('listadoProductos',$productos);
-    }
+	   return view::make('index')->with('productos',$productos);//['productos'=>$productos->toArray()]
+	}
     
     public function buscaID($id){
 		$producto = Producto::findOrFail($id);
