@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Producto;//-> para los espacios de nombres
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
 	//Consultas y búsquedas
     public function dameTodos(){
-        $productos = DB::table('productos')->get();
+        $productos =DB::table('productos')->get();//Producto::all()
 		
        // return $productos;
-	   return view::make('index')->with('productos',$productos);//['productos'=>$productos->toArray()]
+	   return view::make('index',compact('productos'));//->with('productos',$productos);
 	}
     
     public function buscaID($id){

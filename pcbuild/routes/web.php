@@ -14,4 +14,4 @@
 Route::get('/', function(){
     return view('index');//welcome
 });
-Route::get('index','ProductosController@dameTodos');
+Route::get('/','ProductosController@dameTodos');//el primer parametro es una carpeta no un fichero :S
