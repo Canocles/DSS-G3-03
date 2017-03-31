@@ -12,7 +12,7 @@ class ProductosController extends Controller
         $productos =Producto::all();//DB::table('productos')->get();//
 		
        // return $productos;
-	   return view::make('index',compact('productos'));//->with('productos',$productos);
+	   return view('index',compact('productos'));//->with('productos',$productos);
 	}
     
     public function buscaID($id){
