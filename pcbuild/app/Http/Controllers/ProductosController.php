@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Producto;//-> para los espacios de nombres
+
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
 	//Consultas y búsquedas
     public function dameTodos(){
-        $productos =DB::table('productos')->get();//Producto::all()
+        $productos =Producto::all();//DB::table('productos')->get();//
 		
        // return $productos;
 	   return view::make('index',compact('productos'));//->with('productos',$productos);
