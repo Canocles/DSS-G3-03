@@ -75,7 +75,7 @@
             <div class="header-bottom"><!--header-bottom-->
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-9">
+                        <div class="col-sm-3">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="sr-only">Menu</span>
@@ -90,8 +90,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <div class="search_box pull-right">
+                        <div class="col-sm-9">
+                            <div class="search_box pull-left">
                                 <input type="text" placeholder="Search"/>
                             </div>
                         </div>

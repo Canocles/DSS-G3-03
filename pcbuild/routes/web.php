@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/','ProductosController@dameTodos', function() {
+Route::get('/','ProductosController@dameTodos',function() {
     return view('index');
+});
+Route::get('/{nombreCategoria}','ProductosController@buscarCategoria',function(){
+    return view('index');
+});
+Route::get('/{id}','ProductosController@buscaID',function(){
+    return view('productoSingle');
 });

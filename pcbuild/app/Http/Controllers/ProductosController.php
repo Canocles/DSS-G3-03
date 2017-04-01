@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Producto;//-> para los espacios de nombres
-
+use App\Categoria;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller
@@ -10,25 +10,28 @@ class ProductosController extends Controller
 	//Consultas y búsquedas
     public function dameTodos(){
         $productos =Producto::all();//DB::table('productos')->get();//
-		
+		$categorias=Categoria::all();
        // return $productos;
-	   return view('index',compact('productos'));//->with('productos',$productos);
+	   return view('index',compact('productos','categorias'));//->with('productos',$productos);
 	}
     
     public function buscaID($id){
 		$producto = Producto::findOrFail($id);
-		return $producto;
+		$categorias=Categoria::all();
+		//return $producto;
+		return view('productoSingle',compact('producto','categorias'));
 	}
 
     public function buscarNombre($nombre){
         $productos = DB::table('productos')->where('nombre', $nombre)->get();
         return $productos;
     }
-
+	
     public function buscarCategoria($nombreCategoria){
         $idCategoria = DB::table('categorias')->where('nombre', $nombreCategoria)->first();
         $productos = DB::table('productos')->where('categoria', $idCategoria)->get();
-        return $productos;
+        //return $productos;
+		return view('index',compact('productos'));
     }
 
     public function buscarNombreCategoria($nombreProducto, $nombreCategoria){

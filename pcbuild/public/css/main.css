@@ -217,7 +217,7 @@ a#scrollUp i{
 
 
 .shop-menu ul li a:hover {
-	color:#fe980f;
+	color:#3A9EF1;
 	background:#fff;
 }
 
@@ -251,7 +251,7 @@ a#scrollUp i{
 
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
 	background:none;
-	color:#fdb45e;
+	color:#3A9EF1;
 }
 .search_box{
     width: 50%;
@@ -266,10 +266,10 @@ a#scrollUp i{
   height: 35px;
   outline: medium none;
   padding-left: 10px;
-  width: 155px;
+  width: 462px;
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 130px;
+  background-position: 438px;
 }
 
 
@@ -306,7 +306,7 @@ ul.sub-menu {
 }
 
 .dropdown ul.sub-menu li .active{
-  color: #FDB45E;
+  color: #3A9EF1;
   padding-left: 0;
 }
 
@@ -324,7 +324,7 @@ ul.sub-menu {
 }
 
 .navbar-nav li ul.sub-menu li a:hover{
-    color: #FDB45E;
+    color: #3A9EF1;
 }
 
 .fa-angle-down{
@@ -2470,7 +2470,7 @@ h2.title {
 #contact-page .form-control:focus, 
 #contact-page .form-control:hover {
   box-shadow: inherit;
-  border-color: #FDB45E;
+  border-color: #3A9EF1;
 }
 
 #contact-page .contact-info {
