@@ -10,7 +10,7 @@
                             @foreach($categorias as $cat)
                                 <div class="panel panel-default miclase">
                                     <div class="panel-heading miclase">
-                                        <h4 class="panel-title"><a href="{route('index','$cat->nombre'')}">{{$cat->nombre}}</a></h4>
+                                        <h4 class="panel-title"><a href="{{ $cat->nombre }}">{{$cat->nombre}}</a></h4>
                                     </div>
                                     
                                 </div>
