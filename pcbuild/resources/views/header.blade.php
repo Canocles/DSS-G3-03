@@ -63,8 +63,8 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="cart.blade.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.blade.php"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="agregar.blade.php" class="active">Agregar</a></li>
+                                    <li><a href="{!! url('/admin'); !!}" class="active">Administrador</a></li><!-- esta url te lleva a la parte de los formularios-->
                                 </ul>
                             </div>
                         </div>

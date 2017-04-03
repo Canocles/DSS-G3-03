@@ -25,7 +25,8 @@
                             @foreach($productos as $item)
                             <div class="col-sm-4">
                                 <div class="product-image-wrapper">
-                                    <a href="{route('productoSingle',$item->id)}">
+                                    <a href="{{ 'productoSingle/',$item->id }}"><!--aqui falta que cuando pinchas en un producto
+                                    la url sea productoSingle/id del producto pinchado -->
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             <img src="images/productos/{{$item->urlImagen}}" alt="" />

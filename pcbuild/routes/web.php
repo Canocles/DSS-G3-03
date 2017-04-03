@@ -17,6 +17,12 @@ Route::get('/','ProductosController@dameTodos',function() {
 Route::get('/{nombreCategoria}','ProductosController@buscarCategoria',function(){
     return view('index');
 });
-Route::get('/{id}','ProductosController@buscaID',function(){
-    return view('productoSingle');
+Route::get('productoSingle/{id}','ProductosController@buscaID',function(){
+    return view('productoSingle/{id}');
+});
+Route::get('admin',function(){
+    return view('admin');
+});
+Route::get('/','ProductosController@dameAdmin',function() {
+    return view('admin');//para mandarle las categorias a admin
 });

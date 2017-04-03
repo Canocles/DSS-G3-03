@@ -14,7 +14,11 @@ class ProductosController extends Controller
        // return $productos;
 	   return view('index',compact('productos','categorias'));//->with('productos',$productos);
 	}
-    
+    public function dameAdmin(){
+		$categorias=Categoria::all();
+		
+		return view('admin',compact('categorias'));
+	}
     public function buscaID($id){
 		$producto = Producto::findOrFail($id);
 		$categorias=Categoria::all();
