@@ -11,18 +11,10 @@
 |
 */
 
-Route::get('/','ProductosController@dameTodos',function() {
-    return view('index');
-});
-Route::get('/{nombreCategoria}','ProductosController@buscarCategoria',function(){
-    return view('index');
-});
-Route::get('productoSingle/{id}','ProductosController@buscaID',function(){
-    return view('productoSingle/{id}');
-});
+
+Route::get('/','ProductosController@dameTodos');
+Route::get('ver_por_categoria/{nombreCategoria}', ['as' => '/', 'uses' => 'ProductosController@buscarCategoria']);
+Route::get('producto/{id}', ['as' => 'producto', 'uses' => 'ProductosController@buscaID']);
 Route::get('admin',function(){
     return view('admin');
-});
-Route::get('/','ProductosController@dameAdmin',function() {
-    return view('admin');//para mandarle las categorias a admin
 });
