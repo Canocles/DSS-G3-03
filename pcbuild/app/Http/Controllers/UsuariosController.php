@@ -8,17 +8,17 @@ use App\User;
 class UsuariosController extends Controller
 {
     public function mostrarTodos(){
-        $ususarios = User::all();
-        //return;
+        $usuarios = User::all();
+        return view('modificarUsuario', compact('usuarios'));
     }
 
-    public function mostrarEmail($email){
-        $usuario = Usuario::where('email','=',$email);
-        //return;
+    public function mostrarUsuario($id){
+        $usuario = User::findOrFail($id);
+        return view('modificarusu', compact('usuario'));
     }
 
     public function modificar(Request $request, $id){
-        $usuario = Usuario::where('id','=',$id);
+        $usuario = User::where('id','=',$id);
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
@@ -28,7 +28,7 @@ class UsuariosController extends Controller
     }
 
     public function alta(Request $request){
-        $usuario = new Usuario();
+        $usuario = new User();
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
@@ -38,7 +38,7 @@ class UsuariosController extends Controller
     }
 
     public function baja($email){
-        $usuario = Usuario::where('email','=',$email)->first();
+        $usuario = User::where('email','=',$email)->first();
         $usuario->delete();
     }
 }

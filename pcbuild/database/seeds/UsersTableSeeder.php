@@ -20,7 +20,8 @@ DB::table('users')->delete();
             'apellidos' => 'Cortés Pegués',
             'telefono' => 111111111,
             'fechaNacimiento' => '01/01/0001',
-            'password' => '1234'
+            'password' => '1234',
+            'direccion' => 'C/xxxxx nºX puerta X'
         ]);
 
         DB::table('users')->insert([
@@ -29,7 +30,8 @@ DB::table('users')->delete();
             'apellidos' => 'Otrebal Balotre',
             'telefono' => 222222222,
             'fechaNacimiento' => '02/01/0001',
-            'password' => '1234'
+            'password' => '1234',
+            'direccion' => 'C/xxxxx nºX puerta X'
         ]);
 
         DB::table('users')->insert([
@@ -38,7 +40,8 @@ DB::table('users')->delete();
             'apellidos' => 'Soy Unaprueba',
             'telefono' => 000000001,
             'fechaNacimiento' => '23/02/1992',
-            'password' => '1234'
+            'password' => '1234',
+            'direccion' => 'C/xxxxx nºX puerta X'
         ]);
 
         DB::table('users')->insert([
@@ -47,7 +50,8 @@ DB::table('users')->delete();
             'apellidos' => 'Nombre Random',
             'telefono' => 000000002,
             'fechaNacimiento' => '00/00/0000',
-            'password' => '1234'
+            'password' => '1234',
+            'direccion' => 'C/xxxxx nºX puerta X'
         ]);
 
         DB::table('users')->insert([
@@ -56,7 +60,8 @@ DB::table('users')->delete();
             'apellidos' => 'Scwarzenegger',
             'telefono' => 555555555,
             'fechaNacimiento' => '30/06/1947',
-            'password' => '1234'
+            'password' => '1234',
+            'direccion' => 'C/xxxxx nºX puerta X'
         ]);
 
         $usuario = new User(['nombre' => 'Javier',
@@ -64,7 +69,8 @@ DB::table('users')->delete();
                                 'apellidos' => 'Gutierrez',
                                 'telefono' => 696363545,
                                 'fechaNacimiento' => '25/08/2012',
-                                'password' => '1234']);
+                                'password' => '1234',
+                                'direccion' => 'C/inventada']);
         $usuario->save();
     }
 }
