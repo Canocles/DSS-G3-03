@@ -48,8 +48,18 @@
         </div>
         <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Añadir</h2>
-                           
+                            <h2 class="title text-center">modificar Categoría: nombrecategoria</h2>
+                            <div class="col-sm-4 col-sm-offset-1">
+                                <div class="login-form"><!--login form-->
+                                    <h2>modificar Categoría</h2>
+                                    <form action="#">
+                                        <input type="text" placeholder="Nombre" />
+                                        <input type="text" placeholder="Descripción" />
+
+                                        <button type="submit" class="btn btn-default">Guardar</button>
+                                    </form>
+                                </div><!--/login form-->
+                            </div>
                         </div>
                     </div>
     </div>

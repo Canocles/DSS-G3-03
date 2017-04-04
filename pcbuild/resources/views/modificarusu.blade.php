@@ -48,7 +48,22 @@
         </div>
         <div class="col-sm-9 padding-right">
                         <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Añadir</h2>
+                            <h2 class="title text-center">Modificar Usuario: nombre del usuario</h2>
+                            <div class="col-sm-4 col-sm-offset-1">
+                                <div class="login-form"><!--login form-->
+                                    <h2>Modificar Usuario</h2>
+                                    <form action="#"><!-- funcion de editar en controlador -->
+                                        <input type="text" placeholder="Nombre" /><!-- ahora los campos deben salir rellenados
+                                        con los datos de ese cliente-->
+                                        <input type="text" placeholder="Apellidos" />
+                                        <input type="email" placeholder="Email" />
+                                        <input type="text" placeholder="Telefono" />
+                                        <input type="text" placeholder="Dirección" />
+
+                                        <button type="submit" class="btn btn-default">Guardar</button>
+                                    </form>
+                                </div><!--/login form-->
+                            </div>
                            
                         </div>
                     </div>
