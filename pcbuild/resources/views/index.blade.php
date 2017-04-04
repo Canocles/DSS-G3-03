@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-3">
             <div class="left-sidebar">
-                <h2>Category</h2>
+                <h2>Categoría</h2>
                 <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                 @foreach($categorias as $cat)
                     <div class="panel panel-default miclase">
@@ -21,7 +21,7 @@
 
         <div class="col-sm-9 padding-right">
             <div class="features_items"><!--features_items-->
-                <h2 class="title text-center">Features Items</h2>
+                <h2 class="title text-center">Productos</h2>
                 @foreach($productos as $item)
                 <div class="col-sm-4">
                     <div class="product-image-wrapper">
