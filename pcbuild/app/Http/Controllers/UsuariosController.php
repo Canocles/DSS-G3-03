@@ -18,13 +18,17 @@ class UsuariosController extends Controller
     }
 
     public function modificar(Request $request, $id){
-        $usuario = User::where('id','=',$id);
+        $usuario = User::find($id);
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');
-        $usuario->fecha = $request->input('fecha');
+        $usuario->fechaNacimiento = $request->input('fechaNacimiento');
         $usuario->email = $request->input('email');
+        $usuario->password = '1234';
+
+        $usuario->save();
+        return view('admin');
     }
 
     public function alta(Request $request){
@@ -33,8 +37,12 @@ class UsuariosController extends Controller
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');
-        $usuario->fecha = $request->input('fecha');
+        $usuario->fechaNacimiento = $request->input('fechaNacimiento');
         $usuario->email = $request->input('email');
+        $usuario->password = '1234';
+
+        $usuario->save();
+        return view('admin');
     }
 
     public function baja($email){

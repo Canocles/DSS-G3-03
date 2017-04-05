@@ -10,13 +10,14 @@
                     
                     <th></th>
                 </tr>
-                <!-- @foreach($categoria as $cat){
-                    <tr>
-                        <td>$cat->nombre</td>
-                        <td>$cat->descripcion</td>
-                        <td><a href="que lleve a modificarcat/id pasado por parametro">Modificar</a></td>
-                    </tr>
-                    @endforeach -->
+                @foreach($categorias as $cat)
+                <tr>
+                    <td>{{ $cat->nombre }}</td>
+                    <td>{{ $cat->descripcion }}</td>
+                    <td><a href="{{ route('admin/modificar/categoria', $cat->id) }}">Modificar</a></td>
+                </tr>
+                @endforeach
         </table>
+        <div style="text-align:center;"> {{$categorias->links()}} </div>
     @endsection
 @endsection

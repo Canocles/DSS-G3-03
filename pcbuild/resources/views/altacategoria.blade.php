@@ -6,9 +6,10 @@
     <div class="col-sm-4 col-sm-offset-1">
         <div class="login-form"><!--login form-->
             <h2>Añadir Categoría</h2>
-            <form action="#">
-                <input type="text" placeholder="Nombre" />
-                <input type="text" placeholder="Descripción" />
+            <form action="{{ url('admin/alta/categoria') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="text" name="nombre" placeholder="Nombre" />
+                <input type="text" name="descripcion" placeholder="Descripción" />
 
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>

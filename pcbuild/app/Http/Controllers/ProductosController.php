@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Producto;//-> para los espacios de nombres
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 
 class ProductosController extends Controller
 {
@@ -16,9 +17,14 @@ class ProductosController extends Controller
 	}
     public function dameAdmin(){
 		$categorias=Categoria::all();
-		
 		return view('admin',compact('categorias'));
 	}
+
+	public function dameCategorias() {
+		$categorias = Categoria::all();
+		return view('altaproducto', compact('categorias'));
+	}
+
     public function buscaID($id){
 		$producto = Producto::findOrFail($id);
 		$categorias=Categoria::all();
@@ -51,15 +57,19 @@ class ProductosController extends Controller
     }
     
     //Create
-    public function anadirProducto($nombre, $precio, $urlImagen, $descripcion, $categoria){
+    public function anadirProducto(Request $request){
+		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
+		$file = $request->file;
 		$producto = new Producto();
-		$producto->nombre = $nombre;
-		$producto->precio = $precio;
-		$producto->urlImagen = $urlImagen;
-		$producto->descripcion = $descripcion;
-		$producto->categoria = $categoria;
+		$producto->nombre = $request->input('nombre');
+		$producto->precio = $request->input('precio');
+		\Storage::disk('local')->put($producto->nombre, \File::get($file));
+		$producto->urlImagen = 'images/productos/' . $producto->nombre;
+		$producto->descripcion = $request->input('descripcion');
+		$producto->categoria = $categoria->id;
 		
 		$producto->save();
+		return view('admin');
 	}
 	
 	//Update

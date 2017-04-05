@@ -6,13 +6,14 @@
     <div class="col-sm-4 col-sm-offset-1">
         <div class="login-form"><!--login form-->
             <h2>Modificar Usuario</h2>
-            <form action="#"><!-- funcion de editar en controlador -->
-                <input type="text" placeholder="{{ $usuario->nombre }}" />
-                <input type="text" placeholder="{{ $usuario->apellidos }}" />
-                <input type="email" placeholder="{{ $usuario->email }}" />
-                <input type="text" placeholder="{{ $usuario->telefono }}" />
-                <input type="text" placeholder="{{ $usuario->dirección }}" />
-                <input type="text" placeholder="{{ $usuario->fechaNacimiento }}" />
+            <form action="{{ route('admin/modificar/usuario', $usuario->id) }}" method="POST">
+                {{ csrf_field() }}
+                <input type="text" name="nombre" value="{{ $usuario->nombre }}" />
+                <input type="text" name="apellidos" value="{{ $usuario->apellidos }}" />
+                <input type="text" name="fechaNacimiento" value="{{ $usuario->fechaNacimiento }}" />
+                <input type="email" name="email" value="{{ $usuario->email }}" />
+                <input type="tel" name="telefono" value="{{ $usuario->telefono }}" />
+                <input type="text" name="direccion" value="{{ $usuario->direccion }}" />
 
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>

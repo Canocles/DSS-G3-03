@@ -8,20 +8,22 @@ use App\Categoria;
 class CategoriasController extends Controller
 {
     public function mostrarTodas(){
-        $categorias = Categoria::all()->orderBy('nombre','asc')-get();
-        //return();
+        $categorias = Categoria::paginate(5);
+        return view('modificarCategoria', compact('categorias'));
     }
 
-    public function mostrarID($id){
-        $categoria = Categoria::find($id);
-        //return;
+    public function mostrarCategoria($id){
+        $categoria = Categoria::findOrFail($id);
+        return view('modificarcat', compact('categoria'));
     }
 
     public function modificar(Request $request, $id){
         $categoria = Categoria::find($id);
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
-        //return;
+        $categoria->save();
+
+        return view('admin');
     }
 
     public function alta(Request $request){
@@ -29,6 +31,8 @@ class CategoriasController extends Controller
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();
+
+        return view('admin');
     }
 
     public function baja($id){

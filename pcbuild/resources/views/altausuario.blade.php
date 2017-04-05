@@ -6,13 +6,14 @@
     <div class="col-sm-4 col-sm-offset-1">
         <div class="login-form"><!--login form-->
             <h2>Añadir Usuario</h2>
-            <form action="#">
-                <input type="text" placeholder="Nombre" />
-                <input type="text" placeholder="Apellidos" />
-                <input type="email" placeholder="Email" />
-                <input type="text" placeholder="Telefono" />
-                <input type="text" placeholder="Dirección" />
-
+            <form action="{{ url('admin/alta/usuario') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="text" name="nombre" placeholder="Nombre" />
+                <input type="text" name="apellidos" placeholder="Apellidos" />
+                <input type="text" name="fechaNacimiento" placeholder="Fecha de Nacimiento" />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="tel" name="telefono" placeholder="Telefono" />
+                <input type="text" name="direccion" placeholder="Dirección" />
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>
         </div><!--/login form-->
