@@ -9,7 +9,7 @@ class ProductosController extends Controller
 {
 	//Consultas y búsquedas
     public function dameTodos(){
-        $productos =Producto::all();//DB::table('productos')->get();//
+        $productos =Producto::paginate(6);//DB::table('productos')->get();//
 		$categorias=Categoria::all();
        // return $productos;
 	   return view('index',compact('productos','categorias'));//->with('productos',$productos);
@@ -34,7 +34,7 @@ class ProductosController extends Controller
     public function buscarCategoria($nombreCategoria){
 		$categorias=Categoria::all();
         $idCategoria = Categoria::where('nombre', $nombreCategoria)->first();
-        $productos = Producto::where('categoria', $idCategoria->id)->get();
+        $productos = Producto::where('categoria', $idCategoria->id)->paginate(3);
         //return $productos;
 		return view('index',compact('productos', 'categorias'));
     }

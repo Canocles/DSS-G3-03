@@ -51,8 +51,10 @@
                     </div>
                 </div>
                 @endforeach
+
                 
             </div><!--features_items-->
+            <div style="text-align:center;"> {{$productos->links()}} </div>
         </div>
     </div>
 </div>
