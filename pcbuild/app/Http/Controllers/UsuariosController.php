@@ -8,7 +8,7 @@ use App\User;
 class UsuariosController extends Controller
 {
     public function mostrarTodos(){
-        $usuarios = User::all();
+        $usuarios = User::paginate(10);
         return view('modificarUsuario', compact('usuarios'));
     }
 

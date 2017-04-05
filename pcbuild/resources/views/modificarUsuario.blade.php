@@ -19,5 +19,6 @@
         </tr>
         @endforeach
     </table>
+    <div style="text-align:center;"> {{$usuarios->links()}} </div>
     @endsection
 @endsection
