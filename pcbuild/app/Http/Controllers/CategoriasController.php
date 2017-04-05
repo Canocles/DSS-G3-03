@@ -7,36 +7,38 @@ use App\Categoria;
 
 class CategoriasController extends Controller
 {
-    public function mostrarTodas(){
+    public function mostrarCategorias(){
         $categorias = Categoria::paginate(5);
-        return view('modificarCategoria', compact('categorias'));
+        return view('mostrarCategorias', compact('categorias'));
     }
 
     public function mostrarCategoria($id){
         $categoria = Categoria::findOrFail($id);
-        return view('modificarcat', compact('categoria'));
+        return view('modificarCategoria', compact('categoria'));
     }
 
-    public function modificar(Request $request, $id){
+    public function update(Request $request, $id){
         $categoria = Categoria::find($id);
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();
 
-        return view('admin');
+        return redirect('admin/categorias');
     }
 
-    public function alta(Request $request){
+    public function create(Request $request){
         $categoria = new Categoria();
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();
 
-        return view('admin');
+        return redirect('admin/categorias');
     }
 
-    public function baja($id){
+    public function delete($id){
         $categoria = Categoria::find($id);
         $categoria->delete();
+
+        return redirect('admin/categorias');
     }
 }

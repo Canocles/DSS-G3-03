@@ -5,8 +5,8 @@
     <h2 class="title text-center">Añadir Producto</h2>
     <div class="col-sm-4 col-sm-offset-1">
         <div class="login-form"><!--login form-->
-            <h2>Añadir Producto</h2>
-            <form action="{{ url('admin/alta/producto') }}" method="POST" enctype="multipart/form-data">
+            <h2>Producto</h2>
+            <form action="{{ url('admin/productos/anadir') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
                 <input type="number" name="precio" id="precio" placeholder="Precio" />

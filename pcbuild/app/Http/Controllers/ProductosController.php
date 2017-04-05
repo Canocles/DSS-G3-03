@@ -40,7 +40,7 @@ class ProductosController extends Controller
     public function buscarCategoria($nombreCategoria){
 		$categorias=Categoria::all();
         $idCategoria = Categoria::where('nombre', $nombreCategoria)->first();
-        $productos = Producto::where('categoria', $idCategoria->id)->paginate(3);
+        $productos = Producto::where('categoria', $idCategoria->id)->paginate(6);
         //return $productos;
 		return view('index',compact('productos', 'categorias'));
     }
@@ -55,9 +55,21 @@ class ProductosController extends Controller
         ])->get();
         return $productos;
     }
+
+	// Vista de Administrador
+	public function mostrarProductos() {
+		$productos = Producto::paginate(10);
+		return view('mostrarProductos', compact('productos'));
+	}
+
+	public function mostrarProducto($id) {
+		$producto = Producto::findOrFail($id);
+		$categorias = Categoria::all();
+		return view ('modificarProducto', compact('producto', 'categorias'));
+	}
     
     //Create
-    public function anadirProducto(Request $request){
+    public function create(Request $request){
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
 
 		$producto = new Producto();
@@ -72,9 +84,10 @@ class ProductosController extends Controller
 			$producto->urlImagen = 'images/productos/pordefecto.jpg';
 		$producto->descripcion = $request->input('descripcion');
 		$producto->categoria = $categoria->id;
-		
 		$producto->save();
-		return view('admin');
+
+		$productos = Producto::paginate(10);
+		return redirect('admin/productos');
 	}
 	
 	//Update
@@ -82,7 +95,6 @@ class ProductosController extends Controller
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
 		$producto = Producto::findOrFail($id);
 		
-		$producto = new Producto();
 		$producto->nombre = $request->input('nombre');
 		$producto->precio = $request->input('precio');
 		if ($request->hasFile('file')) {
@@ -93,14 +105,18 @@ class ProductosController extends Controller
 		$producto->urlImagen = 'images/productos/pordefecto.jpg';
 		$producto->descripcion = $request->input('descripcion');
 		$producto->categoria = $categoria->id;
-
 		$producto->save();
-		return view('/');
+
+		$productos = Producto::paginate(10);
+		return redirect('admin/productos');
 	}
 	
 	//Delete
-	public function borrar($id){
-		$product = Product::find($id);
+	public function delete($id){
+		$product = Producto::findOrFail($id);
 		$product->delete();
+
+		$productos = Producto::paginate(10);
+		return redirect('admin/productos');
 	}
 }

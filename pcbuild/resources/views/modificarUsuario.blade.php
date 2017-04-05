@@ -3,22 +3,21 @@
 @section('content')
     @section('content2')
     <h2 class="title text-center">Modificar Usuario</h2>
-    <table class="table table-collapsed table-condensed">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Email</th>
-            <th></th>
-        </tr>
-        @foreach($usuarios as $usu)
-        <tr>
-            <td>{{ $usu->nombre }}</td>
-            <td>{{ $usu->apellidos }}</td>
-            <td>{{ $usu->email }}</td>
-            <td><a href="{{ route('admin/modificar/usuario', $usu->id) }}">Modificar</a></td>
-        </tr>
-        @endforeach
-    </table>
-    <div style="text-align:center;"> {{$usuarios->links()}} </div>
+    <div class="col-sm-4 col-sm-offset-1">
+        <div class="login-form"><!--login form-->
+            <h2> {{ $usuario->nombre }}</h2>
+            <form action="{{ route('admin/usuarios/modificar', $usuario->id) }}" method="POST">
+                {{ csrf_field() }}
+                <input type="text" name="nombre" value="{{ $usuario->nombre }}" />
+                <input type="text" name="apellidos" value="{{ $usuario->apellidos }}" />
+                <input type="text" name="fechaNacimiento" value="{{ $usuario->fechaNacimiento }}" />
+                <input type="email" name="email" value="{{ $usuario->email }}" />
+                <input type="tel" name="telefono" value="{{ $usuario->telefono }}" />
+                <input type="text" name="direccion" value="{{ $usuario->direccion }}" />
+
+                <button type="submit" class="btn btn-default">Guardar</button>
+            </form>
+        </div><!--/login form-->
+    </div>
     @endsection
 @endsection

@@ -5,8 +5,8 @@
     <h2 class="title text-center">Añadir Usuario</h2>
     <div class="col-sm-4 col-sm-offset-1">
         <div class="login-form"><!--login form-->
-            <h2>Añadir Usuario</h2>
-            <form action="{{ url('admin/alta/usuario') }}" method="POST">
+            <h2>Usuario</h2>
+            <form action="{{ url('admin/usuarios/anadir') }}" method="POST">
                 {{ csrf_field() }}
                 <input type="text" name="nombre" placeholder="Nombre" />
                 <input type="text" name="apellidos" placeholder="Apellidos" />
