@@ -59,12 +59,17 @@ class ProductosController extends Controller
     //Create
     public function anadirProducto(Request $request){
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
-		$file = $request->file;
+
 		$producto = new Producto();
 		$producto->nombre = $request->input('nombre');
 		$producto->precio = $request->input('precio');
-		\Storage::disk('local')->put($producto->nombre, \File::get($file));
-		$producto->urlImagen = 'images/productos/' . $producto->nombre;
+		if ($request->hasFile('file')) {
+			$file = $request->file;
+			\Storage::disk('local')->put($producto->nombre, \File::get($file));
+			$producto->urlImagen = 'images/productos/' . $producto->nombre;
+		}
+		else
+			$producto->urlImagen = 'images/productos/pordefecto.jpg';
 		$producto->descripcion = $request->input('descripcion');
 		$producto->categoria = $categoria->id;
 		
@@ -73,16 +78,24 @@ class ProductosController extends Controller
 	}
 	
 	//Update
-	public function update($id, $nombre, $precio, $urlImagen, $descripcion, $categoria){
+	public function update(Request $request, $id){
+		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
 		$producto = Producto::findOrFail($id);
 		
-		$producto->nombre = $nombre;
-		$producto->precio = $precio;
-		$producto->urlImagen = $urlImagen;
-		$producto->descripcion = $descripcion;
-		$producto->categoria = $categoria;
-		
+		$producto = new Producto();
+		$producto->nombre = $request->input('nombre');
+		$producto->precio = $request->input('precio');
+		if ($request->hasFile('file')) {
+			$file = $request->file;
+			\Storage::disk('local')->put($producto->nombre, \File::get($file));
+			$producto->urlImagen = 'images/productos/' . $producto->nombre;
+		}
+		$producto->urlImagen = 'images/productos/pordefecto.jpg';
+		$producto->descripcion = $request->input('descripcion');
+		$producto->categoria = $categoria->id;
+
 		$producto->save();
+		return view('/');
 	}
 	
 	//Delete

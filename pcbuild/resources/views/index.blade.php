@@ -29,7 +29,7 @@
                         <div class="single-products">
                             <div class="productinfo text-center">
                                 <img src="{{ asset($item->urlImagen) }}" alt="" />
-                                <h2>{{$item->precio}}</h2>
+                                <h2>{{$item->precio}} €</h2>
                                 <p>{{$item->nombre}}</p>
                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                             </div>
@@ -44,8 +44,8 @@
                         </a>
                         <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                <li><a href="#"><i class="fa fa-pencil"></i>Modificar</a></li>
+                                <li><a href="#"><i class="fa fa-trash-o"></i>Borrar</a></li>
                             </ul>
                         </div>
                     </div>

@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('master')
 @section('title', 'Admin')
 @section('content')
     @section('content2')
@@ -10,14 +10,14 @@
             <th>Precio</th>
             <th></th>
         </tr>
-        <!-- @foreach($productos as $p){
+        @foreach($productos as $p){
             <tr>
-                    <td>$p->nombre</td>
-                    <td>$p->descripcion</td>
-                    <td>$p->precio</td>
-                    <td><a href="que lleve a modificarprod/id pasado por parametro">Modificar</a></td>
-                </tr>
-                @endforeach -->
+                <td>{{ $p->nombre }}</td>
+                <td>{{ $p->descripcion }}</td>
+                <td>{{ $p->precio }}</td>
+                <td><a href="{{ route('admin/modificar/producto', $p->id) }}">Modificar</a></td>
+            </tr>
+        @endforeach
     </table>
     @endsection
 @endsection
