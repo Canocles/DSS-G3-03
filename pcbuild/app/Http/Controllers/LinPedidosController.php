@@ -23,12 +23,12 @@ class LinPedidosController extends Controller
         $linpedido = Linpedido::where([
             ['pedido_id', $pedido_id],
             ['num', $num],
-        ]);
+        ])->first();
         if ($linpedido != NULL) {
             $linpedido->cantidad = $request->cantidad;
-            $linpedido->upload();
+            $linpedido->save();
         }
-        //return redirect('admin/linpedidos');
+        return redirect('admin/linpedidos');
     }
 
     public function create(Request $request){
