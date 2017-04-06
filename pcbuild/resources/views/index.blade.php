@@ -22,6 +22,18 @@
         <div class="col-sm-9 padding-right">
             <div class="features_items"><!--features_items-->
                 <h2 class="title text-center">Productos</h2>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="login-form">
+                            <form action="{{url('ordenar_por_precio')}}" method="GET">
+                                <select name="ordenar" id="ordenar">
+                                    <option value="0">Precio: mayor a menor</option>
+                                    <option value="1">Precio: menor a mayor</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 @foreach($productos as $item)
                 <div class="col-sm-4">
                     <div class="product-image-wrapper">
@@ -54,7 +66,7 @@
 
                 
             </div><!--features_items-->
-            <div style="text-align:center;"> {{$productos->links()}} </div>
+            <div style="text-align:center;">  </div>
         </div>
     </div>
 </div>

@@ -66,9 +66,11 @@
                             </div>
                         </div>
                         <div class="col-sm-9">
+                            <form action="{{url('ver_por_busqueda')}}" method="GET">
                             <div class="search_box pull-left">
-                                <input type="text" placeholder="Search"/>
+                                <input type="text" placeholder="Buscar" name="busqueda" id="busqueda"/>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

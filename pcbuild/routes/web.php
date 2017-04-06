@@ -15,6 +15,8 @@
 Route::get('/', 'ProductosController@dameTodos');
 Route::get('ver_por_categoria/{nombreCategoria}', ['as' => '/', 'uses' => 'ProductosController@buscarCategoria']);
 Route::get('/productos/ver_producto/{id}', ['as' => 'producto', 'uses' => 'ProductosController@buscaID']);
+Route::get('ver_por_busqueda','ProductosController@buscarNombre');
+Route::get('ordenar_por_precio','ProductosController@buscarPrecio');
 /*
 
 // Vista de administrador 

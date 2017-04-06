@@ -32,9 +32,24 @@ class ProductosController extends Controller
 		return view('productoSingle',compact('producto','categorias'));
 	}
 
-    public function buscarNombre($nombre){
-        $productos = DB::table('productos')->where('nombre', $nombre)->get();
-        return $productos;
+    public function buscarNombre(Request $request){
+		$busqueda=$request->input('busqueda');
+        $productos = Producto::where('nombre',$busqueda)->get();
+		$categorias=Categoria::all();
+       /// return $productos;
+	   	return view('index',compact('productos','categorias'));
+    }
+	public function buscarPrecio(Request $request){
+		$precio=$request->select('ordenar');
+		if($precio == "0"){//0-> mayor a menor (desc)
+        $productos = Producto::all()->orderBy('precio','desc');
+		}
+		if($precio == "1"){
+			$productos = Producto::all()->orderBy('precio','asc');
+		}
+		$categorias=Categoria::all();
+       /// return $productos;
+	   	return view('index',compact('productos','categorias'));
     }
 	
     public function buscarCategoria($nombreCategoria){
