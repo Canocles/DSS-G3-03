@@ -9,7 +9,7 @@ class UsuariosController extends Controller
 {
     public function mostrarUsuarios(){
         $orden = '';
-        $usuarios = User::paginate(10);
+        $usuarios = User::paginate(5);
         return view('mostrarUsuarios', compact('usuarios', 'orden'));
     }
 
@@ -20,9 +20,9 @@ class UsuariosController extends Controller
 
     public function ordenar($orden) {
 		if ($orden == 'desc')
-			$usuarios = User::orderBy('nombre', 'desc')->paginate(10);
+			$usuarios = User::orderBy('nombre', 'desc')->paginate(5);
 		else
-			$usuarios = User::orderBy('nombre', 'asc')->paginate(10);
+			$usuarios = User::orderBy('nombre', 'asc')->paginate(5);
 
 		return view ('mostrarUsuarios', compact('usuarios', 'orden'));
 	}

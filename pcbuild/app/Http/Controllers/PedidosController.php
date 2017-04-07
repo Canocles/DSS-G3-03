@@ -16,7 +16,7 @@ class PedidosController extends Controller
      */
     public function mostrarPedidos() {
         $orden = '';
-        $pedidos = Pedido::paginate(10);
+        $pedidos = Pedido::paginate(5);
         return view('mostrarPedidos', compact('pedidos', 'orden'));
     }
 
@@ -34,9 +34,9 @@ class PedidosController extends Controller
 
     public function ordenar($orden) {
 		if ($orden == 'desc')
-			$pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
+			$pedidos = Pedido::orderBy('id', 'desc')->paginate(5);
 		else
-			$pedidos = Pedido::orderBy('id', 'asc')->paginate(10);
+			$pedidos = Pedido::orderBy('id', 'asc')->paginate(5);
 
 		return view ('mostrarPedidos', compact('pedidos', 'orden'));
 	}
@@ -57,7 +57,7 @@ class PedidosController extends Controller
         $pedido = new pedido();
         $usuario = User::where('email', '=', $request->email)->first();
         if ($usuario != NULL) {
-            $pedido->fecha = $request->input('fecha');
+            $pedido->fecha = date('d/m/Y');
             $pedido->user_id = $usuario->id;
             $pedido->save();
         }

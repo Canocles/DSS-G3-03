@@ -10,7 +10,7 @@ class ProductosController extends Controller
 {
 	//Consultas y búsquedas
     public function dameTodos(){
-        $productos =Producto::paginate(10);//DB::table('productos')->get();//
+        $productos =Producto::paginate(6);//DB::table('productos')->get();//
 		$categorias=Categoria::all();
        // return $productos;
 	   return view('index',compact('productos','categorias'));//->with('productos',$productos);
@@ -34,7 +34,7 @@ class ProductosController extends Controller
 
     public function buscarNombre(Request $request){
 		$busqueda=$request->input('producto');
-		$productos = Producto::where('nombre', 'like', '%'.$busqueda.'%')->paginate(10);
+		$productos = Producto::where('nombre', 'like', '%'.$busqueda.'%')->paginate(6);
 		$categorias=Categoria::all();
        /// return $productos;
 	   	return view('index',compact('productos','categorias'));
@@ -42,10 +42,10 @@ class ProductosController extends Controller
 	public function buscarPrecio(Request $request){
 		$precio = $request->input('precio');
 		if($precio == "desc"){//0-> mayor a menor (desc)
-			$productos = Producto::where('precio', '>', 0)->orderBy('precio', 'desc')->paginate(10);
+			$productos = Producto::where('precio', '>', 0)->orderBy('precio', 'desc')->paginate(6);
 		}
 		if($precio == "asc"){
-			$productos = Producto::where('precio', '>', 0)->orderBy('precio')->paginate(10);
+			$productos = Producto::where('precio', '>', 0)->orderBy('precio')->paginate(6);
 		}
 		$categorias=Categoria::all();
        /// return $productos;
@@ -54,9 +54,9 @@ class ProductosController extends Controller
 
 	public function ordenar($orden) {
 		if ($orden == 'desc')
-			$productos = Producto::orderBy('precio', 'desc')->paginate(10);
+			$productos = Producto::orderBy('precio', 'desc')->paginate(6);
 		else
-			$productos = Producto::orderBy('precio', 'asc')->paginate(10);
+			$productos = Producto::orderBy('precio', 'asc')->paginate(6);
 
 		return view ('mostrarProductos', compact('productos', 'orden'));
 	}
@@ -64,26 +64,15 @@ class ProductosController extends Controller
     public function buscarCategoria($nombreCategoria){
 		$categorias=Categoria::all();
         $idCategoria = Categoria::where('nombre', $nombreCategoria)->first();
-        $productos = Producto::where('categoria', $idCategoria->id)->paginate(10);
+        $productos = Producto::where('categoria', $idCategoria->id)->paginate(6);
         //return $productos;
 		return view('index',compact('productos', 'categorias'));
-    }
-
-    public function buscarNombreCategoria($nombreProducto, $nombreCategoria){
-        $categoria = DB::table('categorias')->where('nombre', $nombreCategoria)->first();
-        $idCategoria = $categoria->id;
-        
-        $productos = DB::table('productos')->where([
-            ['nombre', $nombreProducto],
-            ['categoria', $nombreCategoria],
-        ])->get();
-        return $productos;
     }
 
 	// Vista de Administrador
 	public function mostrarProductos() {
 		$orden = '';
-		$productos = Producto::paginate(10);
+		$productos = Producto::paginate(5);
 		return view('mostrarProductos', compact('productos', 'orden'));
 	}
 
@@ -111,7 +100,6 @@ class ProductosController extends Controller
 		$producto->categoria = $categoria->id;
 		$producto->save();
 
-		$productos = Producto::paginate(10);
 		return redirect('admin/productos');
 	}
 	
@@ -132,7 +120,6 @@ class ProductosController extends Controller
 		$producto->categoria = $categoria->id;
 		$producto->save();
 
-		$productos = Producto::paginate(10);
 		return redirect('admin/productos');
 	}
 	
@@ -141,7 +128,6 @@ class ProductosController extends Controller
 		$product = Producto::findOrFail($id);
 		$product->delete();
 
-		$productos = Producto::paginate(10);
 		return redirect('admin/productos');
 	}
 }

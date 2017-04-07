@@ -18,55 +18,55 @@ DB::table('users')->delete();
             'nombre' => 'Fernando',
             'email' => 'fernando@pcbuild.com',
             'apellidos' => 'Cortés Pegués',
-            'telefono' => 111111111,
-            'fechaNacimiento' => '01/01/0001',
+            'telefono' => 697875245,
+            'fechaNacimiento' => '01/01/1990',
             'password' => '1234',
-            'direccion' => 'C/xxxxx nºX puerta X'
+            'direccion' => 'C/Inventada'
         ]);
 
         DB::table('users')->insert([
             'nombre' => 'Alberto',
             'email' => 'alberto@pcbuild.com',
             'apellidos' => 'Otrebal Balotre',
-            'telefono' => 222222222,
-            'fechaNacimiento' => '02/01/0001',
+            'telefono' => 691573645,
+            'fechaNacimiento' => '02/01/1991',
             'password' => '1234',
-            'direccion' => 'C/xxxxx nºX puerta X'
+            'direccion' => 'C/Inventada'
         ]);
 
         DB::table('users')->insert([
-            'nombre' => 'Ramses',
-            'email' => 'egocentrimso@pcbuild.com',
-            'apellidos' => 'Soy Unaprueba',
-            'telefono' => 000000001,
+            'nombre' => 'Paco',
+            'email' => 'egocentrismo@pcbuild.com',
+            'apellidos' => 'Gutierrez Fernandez',
+            'telefono' => 689666365,
             'fechaNacimiento' => '23/02/1992',
             'password' => '1234',
-            'direccion' => 'C/xxxxx nºX puerta X'
+            'direccion' => 'C/Inventada'
         ]);
 
         DB::table('users')->insert([
             'nombre' => 'Alenadro',
             'email' => 'Alenadro@pcbuild.com',
-            'apellidos' => 'Nombre Random',
-            'telefono' => 000000002,
-            'fechaNacimiento' => '00/00/0000',
+            'apellidos' => 'Jimenez Panadero',
+            'telefono' => 648520334,
+            'fechaNacimiento' => '17/05/1936',
             'password' => '1234',
-            'direccion' => 'C/xxxxx nºX puerta X'
+            'direccion' => 'C/Inventada'
         ]);
 
         DB::table('users')->insert([
             'nombre' => 'Arnold',
             'email' => 'comounapiedra@pcbuild.com',
             'apellidos' => 'Scwarzenegger',
-            'telefono' => 555555555,
+            'telefono' => 646585959,
             'fechaNacimiento' => '30/06/1947',
             'password' => '1234',
-            'direccion' => 'C/xxxxx nºX puerta X'
+            'direccion' => 'C/Inventada'
         ]);
 
         $usuario = new User(['nombre' => 'Javier',
                                 'email' => 'Javier@pcbuild.com',
-                                'apellidos' => 'Gutierrez',
+                                'apellidos' => 'Aura Nieto',
                                 'telefono' => 696363545,
                                 'fechaNacimiento' => '25/08/2012',
                                 'password' => '1234',

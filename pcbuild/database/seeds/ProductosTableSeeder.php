@@ -35,6 +35,20 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         DB::table('productos')->insert([
+            'nombre' => 'Gráfica 4',
+            'precio' => 876.99,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 2
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => 'Gráfica 5',
+            'precio' => 458.00,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 2
+        ]);   
+
+        DB::table('productos')->insert([
             'nombre' => 'CPU 1',
             'precio' => 40.00,
             'descripcion' => 'Descripcion detallada',
@@ -56,6 +70,20 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         DB::table('productos')->insert([
+            'nombre' => 'CPU 4',
+            'precio' => 579.00,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 1
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => 'CPU 5',
+            'precio' => 698.00,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 1
+        ]);
+
+        DB::table('productos')->insert([
             'nombre' => 'Torre 1',
             'precio' => 400.00,
             'descripcion' => 'Descripcion detallada',
@@ -72,6 +100,20 @@ class ProductosTableSeeder extends Seeder
         DB::table('productos')->insert([
             'nombre' => 'Torre 3',
             'precio' => 1200.00,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 3
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => 'Torre 4',
+            'precio' => 128.00,
+            'descripcion' => 'Descripcion detallada',
+            'categoria' => 3
+        ]);
+
+        DB::table('productos')->insert([
+            'nombre' => 'Torre 5',
+            'precio' => 259.99,
             'descripcion' => 'Descripcion detallada',
             'categoria' => 3
         ]);

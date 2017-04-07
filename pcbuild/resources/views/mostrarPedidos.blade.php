@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Admin')
+@section('title', 'Pedidos')
 @section('content')
     @section('content2')
     <h2 class="title text-center">Pedidos</h2>

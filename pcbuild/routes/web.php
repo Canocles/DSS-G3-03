@@ -31,7 +31,7 @@ Route::get('admin/pedidos/pedido/{id}', ['as' => 'admin/pedidos/pedido', 'uses' 
 Route::get('admin/productos/ordenar/precio/{oredn}', 'ProductosController@ordenar');
 Route::get('admin/usuarios/ordenar/nombre/{oredn}', 'UsuariosController@ordenar');
 Route::get('admin/categorias/ordenar/nombre/{oredn}', 'CategoriasController@ordenar');
-Route::get('admin/pedidos/ordenar/fecha/{oredn}', 'PedidosController@ordenar');
+Route::get('admin/pedidos/ordenar/pedido/{oredn}', 'PedidosController@ordenar');
 Route::get('admin/linpedidos/ordenar/pedido/{oredn}', 'LinPedidosController@ordenar');
 
 // Rutas para mostrar los formularios para añadir objetos

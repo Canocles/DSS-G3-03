@@ -1,11 +1,11 @@
 @extends('layout')
-@section('title', 'Admin')
+@section('title', 'Usuarios')
 @section('content')
     @section('content2')
     <h2 class="title text-center">Usuarios</h2>
     <table class="table table-collapsed table-condensed">
         <tr>
-            <th>nombre
+            <th>Nombre
             @if ($orden == 'desc')
                 <a href="{{ action('UsuariosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort-asc"></i></a></th>
             @elseif ($orden == 'asc')
@@ -15,6 +15,9 @@
             @endif
             <th>Apellidos</th>
             <th>Email</th>
+            <th>Teléfono</th>
+            <th>Fecha nac</th>
+            <th>Dirección</th>
             <th></th>
             <th></th>
         </tr>
@@ -23,6 +26,9 @@
                 <td>{{ $usu->nombre }}</td>
                 <td>{{ $usu->apellidos }}</td>
                 <td>{{ $usu->email }}</td>
+                <td>{{ $usu->telefono }}</td>
+                <td>{{ $usu->fechaNacimiento }}</td>
+                <td>{{ $usu->direccion }}</td>
                 <td><a href="{{ action('UsuariosController@delete', $usu->id) }}"><i class="fa fa-trash-o"></a></td>
                 <td><a href="{{ route('admin/usuarios/modificar', $usu->id) }}"><i class="fa fa-pencil"></a></td>
             </tr>

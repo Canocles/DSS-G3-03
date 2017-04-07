@@ -1,10 +1,11 @@
 @extends('layout')
-@section('title', 'Admin')
+@section('title', 'Productos')
 @section('content')
     @section('content2')
     <h2 class="title text-center">Productos</h2>
     <table class="table table-collapsed table-condensed">
         <tr>
+            <th>ID Producto</th>
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio 
@@ -20,9 +21,10 @@
         </tr>
         @foreach($productos as $p)
             <tr>
+                <td>{{ $p->id }}</td>
                 <td>{{ $p->nombre }}</td>
                 <td>{{ $p->descripcion }}</td>
-                <td>{{ $p->precio }}</td>
+                <td>{{ $p->precio }} €</td>
                 <td><a href="{{ action('ProductosController@delete', $p->id) }}"><i class="fa fa-trash-o"></a></td>
                 <td><a href="{{ route('admin/productos/modificar', $p->id) }}"><i class="fa fa-pencil"></a></td>
             </tr>

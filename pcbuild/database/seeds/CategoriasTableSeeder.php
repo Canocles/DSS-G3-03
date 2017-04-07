@@ -20,7 +20,7 @@ class CategoriasTableSeeder extends Seeder
         
         DB::table('categorias')->insert([
             'nombre' => 'Tarjeta gráfica',
-            'descripcion' => 'Pos una tarjeta gráfica'
+            'descripcion' => 'Es una Tarjeta Gráfica'
         ]);
         
         DB::table('categorias')->insert([

@@ -11,7 +11,7 @@ class LinPedidosController extends Controller
 {
     public function mostrarLinpedidos() {
         $orden = '';
-        $linpedidos = Linpedido::orderBy('pedido_id')->paginate(10);
+        $linpedidos = Linpedido::orderBy('pedido_id')->paginate(5);
         return view ('mostrarLinpedidos', compact('linpedidos','orden'));
     }
 
@@ -23,9 +23,9 @@ class LinPedidosController extends Controller
 
     public function ordenar($orden) {
 		if ($orden == 'desc')
-			$linpedidos = Linpedido::orderBy('pedido_id', 'desc')->paginate(10);
+			$linpedidos = Linpedido::orderBy('pedido_id', 'desc')->paginate(5);
 		else
-			$linpedidos = Linpedido::orderBy('pedido_id', 'asc')->paginate(10);
+			$linpedidos = Linpedido::orderBy('pedido_id', 'asc')->paginate(5);
 
 		return view ('mostrarLinpedidos', compact('linpedidos', 'orden'));
 	}

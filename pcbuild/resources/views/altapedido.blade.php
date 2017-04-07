@@ -8,7 +8,6 @@
             <h2>Usuario</h2>
             <form action="{{ url('admin/pedidos/anadir') }}" method="POST">
                 {{ csrf_field() }}
-                <input type="text" name="fecha" placeholder="Fecha" />
                 <input type="email" name="email" placeholder="Email Usuario" />
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>

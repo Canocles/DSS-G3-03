@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Admin')
+@section('title', 'Categorias')
 @section('content')
     @section('content2')
     <h2 class="title text-center">Categorías</h2>

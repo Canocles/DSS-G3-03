@@ -75,5 +75,26 @@ class LinpedidosTableSeeder extends Seeder
             'producto_id' => 1,
             'pedido_id' => 4
         ]);
+
+        DB::table('linpedidos')->insert([
+            'num' => 1,
+            'cantidad' => 4,
+            'producto_id' => 1,
+            'pedido_id' => 5
+        ]);
+
+        DB::table('linpedidos')->insert([
+            'num' => 2,
+            'cantidad' => 1,
+            'producto_id' => 6,
+            'pedido_id' => 5
+        ]);
+
+        DB::table('linpedidos')->insert([
+            'num' => 3,
+            'cantidad' => 1,
+            'producto_id' => 7,
+            'pedido_id' => 5
+        ]);
     }
 }

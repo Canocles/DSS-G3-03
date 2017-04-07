@@ -20,9 +20,9 @@ class CategoriasController extends Controller
 
     public function ordenar($orden) {
 		if ($orden == 'desc')
-			$categorias = Categoria::orderBy('nombre', 'desc')->paginate(10);
+			$categorias = Categoria::orderBy('nombre', 'desc')->paginate(5);
 		else
-			$categorias = Categoria::orderBy('nombre', 'asc')->paginate(10);
+			$categorias = Categoria::orderBy('nombre', 'asc')->paginate(5);
 
 		return view ('mostrarCategorias', compact('categorias', 'orden'));
 	}
