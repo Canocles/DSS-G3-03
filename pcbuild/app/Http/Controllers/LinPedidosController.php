@@ -16,8 +16,9 @@ class LinPedidosController extends Controller
     }
 
     public function mostrarLinpedidosPedido($num) {
+        $orden = '';
         $linpedido = Linpedido::where('num', $num)->first();
-        return view ('modificarLinpedido', compact('linpedido'));
+        return view ('modificarLinpedido', compact('linpedido', 'orden'));
     }
 
     public function ordenar($orden) {

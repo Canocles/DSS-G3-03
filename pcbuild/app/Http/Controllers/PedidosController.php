@@ -26,9 +26,10 @@ class PedidosController extends Controller
     }
 
     public function mostrarPorPedido($pedidoId) {
+        $orden = '';
         $linpedidos = Linpedido::where('pedido_id', '=', $pedidoId)->paginate(5);
 
-        return view ('mostrarLinpedidos', compact('linpedidos'));
+        return view ('mostrarLinpedidos', compact('linpedidos', 'orden'));
     }
 
     public function ordenar($orden) {
