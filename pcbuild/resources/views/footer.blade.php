@@ -7,7 +7,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="single-widget">
-                                <h2><a href="contact-us.html">Contacto</a></h2>
+                                <h2><a href="{{ URL::asset('contacto') }}">Contacto</a></h2>
                                
                                 <p>Todo lo que necesitas saber sobre nosotros..</p>
                             </div>
