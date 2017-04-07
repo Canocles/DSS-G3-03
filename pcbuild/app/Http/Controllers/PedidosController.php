@@ -15,8 +15,9 @@ class PedidosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mostrarPedidos() {
+        $orden = '';
         $pedidos = Pedido::paginate(10);
-        return view('mostrarPedidos', compact('pedidos'));
+        return view('mostrarPedidos', compact('pedidos', 'orden'));
     }
 
     public function mostrarPedido($id){
@@ -29,6 +30,15 @@ class PedidosController extends Controller
 
         return view ('mostrarLinpedidos', compact('linpedidos'));
     }
+
+    public function ordenar($orden) {
+		if ($orden == 'desc')
+			$pedidos = Pedido::orderBy('id', 'desc')->paginate(10);
+		else
+			$pedidos = Pedido::orderBy('id', 'asc')->paginate(10);
+
+		return view ('mostrarPedidos', compact('pedidos', 'orden'));
+	}
 
     public function update(Request $request, $id){
         $pedido = Pedido::findOrFail($id);

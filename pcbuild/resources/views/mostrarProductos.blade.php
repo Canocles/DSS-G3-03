@@ -7,7 +7,14 @@
         <tr>
             <th>Nombre</th>
             <th>Descripcion</th>
-            <th>Precio</th>
+            <th>Precio 
+            @if ($orden == 'desc')
+                <a href="{{ action('ProductosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort-asc"></i></a></th>
+            @elseif ($orden == 'asc')
+                <a href="{{ action('ProductosController@ordenar', ['orden' => 'desc']) }}"><i class="fa fa-sort-desc"></i></a></th>
+            @else
+                <a href="{{ action('ProductosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort"></i></a></th>
+            @endif
             <th></th>
             <th></th>
         </tr>

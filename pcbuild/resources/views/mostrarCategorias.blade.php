@@ -5,7 +5,14 @@
     <h2 class="title text-center">Categorías</h2>
         <table class="table table-collapsed table-condensed">
             <tr>
-                <th>Nombre</th>
+                <th>Nombre
+                @if ($orden == 'desc')
+                    <a href="{{ action('CategoriasController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort-asc"></i></a></th>
+                @elseif ($orden == 'asc')
+                    <a href="{{ action('CategoriasController@ordenar', ['orden' => 'desc']) }}"><i class="fa fa-sort-desc"></i></a></th>
+                @else
+                    <a href="{{ action('CategoriasController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort"></i></a></th>
+                @endif
                 <th>Descripcion</th> 
                 <th></th>
                 <th></th>

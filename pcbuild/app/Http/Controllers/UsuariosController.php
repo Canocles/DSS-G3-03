@@ -8,14 +8,24 @@ use App\User;
 class UsuariosController extends Controller
 {
     public function mostrarUsuarios(){
+        $orden = '';
         $usuarios = User::paginate(10);
-        return view('mostrarUsuarios', compact('usuarios'));
+        return view('mostrarUsuarios', compact('usuarios', 'orden'));
     }
 
     public function mostrarUsuario($id){
         $usuario = User::findOrFail($id);
         return view('modificarUsuario', compact('usuario'));
     }
+
+    public function ordenar($orden) {
+		if ($orden == 'desc')
+			$usuarios = User::orderBy('nombre', 'desc')->paginate(10);
+		else
+			$usuarios = User::orderBy('nombre', 'asc')->paginate(10);
+
+		return view ('mostrarUsuarios', compact('usuarios', 'orden'));
+	}
 
     public function update(Request $request, $id){
         $usuario = User::find($id);

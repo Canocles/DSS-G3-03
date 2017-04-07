@@ -5,7 +5,14 @@
     <h2 class="title text-center">Líneas de Pedido</h2>
         <table class="table table-collapsed table-condensed">
             <tr>
-                <th>Pedido</th>
+                <th>Pedido
+                @if ($orden == 'desc')
+                    <a href="{{ action('LinPedidosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort-asc"></i></a></th>
+                @elseif ($orden == 'asc')
+                    <a href="{{ action('LinPedidosController@ordenar', ['orden' => 'desc']) }}"><i class="fa fa-sort-desc"></i></a></th>
+                @else
+                    <a href="{{ action('LinPedidosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort"></i></a></th>
+                @endif
                 <th>Línea</th>
                 <th>Producto</th>
                 <th>Cantidad</th> 

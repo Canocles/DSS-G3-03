@@ -61,14 +61,14 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="{{ URL::asset('admin') }}" class="active">Administrador</a></li>
+                                    <li><a href="{{ URL::asset('admin/productos') }}" class="active">Administrador</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-sm-9">
-                            <form action="{{url('ver_por_busqueda')}}" method="GET">
+                            <form action="{{url('buscar')}}" method="GET">
                             <div class="search_box pull-left">
-                                <input type="text" placeholder="Buscar" name="busqueda" id="busqueda"/>
+                                <input type="text" placeholder="Buscar" name="producto" id="producto"/>
                             </div>
                             </form>
                         </div>

@@ -10,14 +10,24 @@ use App\Pedido;
 class LinPedidosController extends Controller
 {
     public function mostrarLinpedidos() {
+        $orden = '';
         $linpedidos = Linpedido::orderBy('pedido_id')->paginate(10);
-        return view ('mostrarLinpedidos', compact('linpedidos'));
+        return view ('mostrarLinpedidos', compact('linpedidos','orden'));
     }
 
     public function mostrarLinpedidosPedido($num) {
         $linpedido = Linpedido::where('num', $num)->first();
         return view ('modificarLinpedido', compact('linpedido'));
     }
+
+    public function ordenar($orden) {
+		if ($orden == 'desc')
+			$linpedidos = Linpedido::orderBy('pedido_id', 'desc')->paginate(10);
+		else
+			$linpedidos = Linpedido::orderBy('pedido_id', 'asc')->paginate(10);
+
+		return view ('mostrarLinpedidos', compact('linpedidos', 'orden'));
+	}
 
     public function update(Request $request, $num, $pedido_id){
         $linpedido = Linpedido::where([

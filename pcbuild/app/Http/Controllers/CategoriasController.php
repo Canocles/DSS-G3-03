@@ -8,8 +8,9 @@ use App\Categoria;
 class CategoriasController extends Controller
 {
     public function mostrarCategorias(){
+        $orden = '';
         $categorias = Categoria::paginate(5);
-        return view('mostrarCategorias', compact('categorias'));
+        return view('mostrarCategorias', compact('categorias', 'orden'));
     }
 
     public function mostrarCategoria($id){
@@ -17,6 +18,15 @@ class CategoriasController extends Controller
         return view('modificarCategoria', compact('categoria'));
     }
 
+    public function ordenar($orden) {
+		if ($orden == 'desc')
+			$categorias = Categoria::orderBy('nombre', 'desc')->paginate(10);
+		else
+			$categorias = Categoria::orderBy('nombre', 'asc')->paginate(10);
+
+		return view ('mostrarCategorias', compact('categorias', 'orden'));
+	}
+    
     public function update(Request $request, $id){
         $categoria = Categoria::find($id);
         $categoria->nombre = $request->input('nombre');

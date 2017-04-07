@@ -14,9 +14,9 @@
 // Listados de Modelos para Users
 Route::get('/', 'ProductosController@dameTodos');
 Route::get('ver_por_categoria/{nombreCategoria}', ['as' => '/', 'uses' => 'ProductosController@buscarCategoria']);
-Route::get('/productos/ver_producto/{id}', ['as' => 'producto', 'uses' => 'ProductosController@buscaID']);
-Route::get('ver_por_busqueda','ProductosController@buscarNombre');
-Route::get('ordenar_por_precio','ProductosController@buscarPrecio');
+Route::get('productos/ver_producto/{id}', ['as' => 'producto', 'uses' => 'ProductosController@buscaID']);
+Route::get('buscar','ProductosController@buscarNombre');
+Route::get('ordenar','ProductosController@buscarPrecio');
 /*
 
 // Vista de administrador 
@@ -47,6 +47,12 @@ Route::get('admin/categorias', 'CategoriasController@mostrarCategorias');
 Route::get('admin/pedidos', 'PedidosController@mostrarPedidos');
 Route::get('admin/linpedidos', 'LinPedidosController@mostrarLinpedidos');
 Route::get('admin/pedidos/pedido/{id}', ['as' => 'admin/pedidos/pedido', 'uses' => 'PedidosController@mostrarPorPedido']);
+
+Route::get('admin/productos/ordenar/precio/{oredn}', 'ProductosController@ordenar');
+Route::get('admin/usuarios/ordenar/nombre/{oredn}', 'UsuariosController@ordenar');
+Route::get('admin/categorias/ordenar/nombre/{oredn}', 'CategoriasController@ordenar');
+Route::get('admin/pedidos/ordenar/fecha/{oredn}', 'PedidosController@ordenar');
+Route::get('admin/linpedidos/ordenar/pedido/{oredn}', 'LinPedidosController@ordenar');
 
 Route::get('admin/productos/anadir', 'ProductosController@dameCategorias');
 Route::get('admin/usuarios/anadir', function() { return view ('altausuario'); });
