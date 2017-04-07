@@ -30,19 +30,19 @@
 							<!-- Wrapper for slides -->
 								<div class="carousel-inner">
 								<div class="item active">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
 								</div>
 								<div class="item">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
 								</div>
 								<div class="item">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt=""></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
+									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
 								</div>
 								
 							</div>

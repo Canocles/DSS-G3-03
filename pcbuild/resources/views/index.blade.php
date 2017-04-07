@@ -24,12 +24,12 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="login-form">
-                            <form action="{{url('ordenar')}}" method="GET">
-                                <select name="precio" id="ordenar">
-                                    <option value="desc">Precio: mayor a menor</option>
-                                    <option value="asc">Precio: menor a mayor</option>
-                                </select>
-                                <button type="submit" class="btn btn-default">Ordenar</button>
+                            <form class="form-inline" action="{{url('ordenar')}}" method="GET">
+                                    <select name="precio" id="ordenar">
+                                        <option value="desc">Precio: mayor a menor</option>
+                                        <option value="asc">Precio: menor a mayor</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-default">Ordenar</button>
                             </form>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                                 <a href="{{ route('producto',$item->id) }}">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="{{ asset($item->urlImagen) }}" alt="" />
+                                        <img src="{{ asset($item->urlImagen) }}" alt="" style="width:200px;height:200px;"/>
                                         <h2>{{$item->precio}} €</h2>
                                         <p>{{$item->nombre}}</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
