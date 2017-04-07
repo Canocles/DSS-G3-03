@@ -22,21 +22,25 @@
             <div class="features_items"><!--features_items-->
                 <h2 class="title text-center">Productos</h2>
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-md-12">
                         <div class="login-form">
                             <form class="form-inline" action="{{url('ordenar')}}" method="GET">
+                                <div class="col-md-10 col-xs-10 col-sm-8 col-lg-10">
                                     <select name="precio" id="ordenar">
                                         <option value="desc">Precio: mayor a menor</option>
                                         <option value="asc">Precio: menor a mayor</option>
                                     </select>
+                                </div>
+                                <div clsas="col-md-2 col-xs-8 col-sm-4 col-lg-8">
                                     <button type="submit" class="btn btn-default">Ordenar</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     @foreach($productos as $item)
-                        <div class="col-sm-4">
+                        <div class="col-md-4 col-sm-4 col-xs-6 col-lg-4">
                             <div class="product-image-wrapper">
                                 <a href="{{ route('producto',$item->id) }}">
                                 <div class="single-products">
