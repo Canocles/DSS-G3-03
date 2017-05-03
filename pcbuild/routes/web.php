@@ -67,3 +67,6 @@ Route::post('admin/usuarios/modificar/{id}', 'UsuariosController@update');
 Route::post('admin/categorias/modificar/{id}', 'CategoriasController@update');
 Route::post('admin/pedidos/modificar/{id}', 'PedidosController@update');
 Route::post('admin/linpedidos/modificar/{num}/{pedido_id}', ['as' => 'admin/linpedidos/modificar', 'uses' => 'LinPedidosController@update']);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
