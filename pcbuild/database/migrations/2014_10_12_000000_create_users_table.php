@@ -17,10 +17,10 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('apellidos');
             $table->integer('telefono');
             $table->string('fechaNacimiento');
-            $table->string('password');
             $table->string('direccion');
             $table->boolean('esadmin')->default(false);
             $table->rememberToken();
