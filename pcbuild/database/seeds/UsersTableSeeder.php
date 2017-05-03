@@ -13,6 +13,17 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 DB::table('users')->delete();
+
+        DB::table('users')->insert([
+            'nombre' => 'ADMIN',
+            'email' => 'ADMIN@pcbuild.com',
+            'apellidos' => 'ADMINISTRADOR',
+            'telefono' => 000000000,
+            'fechaNacimiento' => '01/01/1990',
+            'password' => 'ADMIN',
+            'direccion' => 'ADMIN',
+            'esadmin' => true
+        ]);
         
         DB::table('users')->insert([
             'nombre' => 'Fernando',

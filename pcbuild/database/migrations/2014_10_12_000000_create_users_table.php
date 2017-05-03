@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('fechaNacimiento');
             $table->string('password');
             $table->string('direccion');
+            $table->boolean('esadmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
