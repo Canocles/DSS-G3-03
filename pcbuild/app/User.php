@@ -16,6 +16,8 @@ class User extends Model implements AuthenticatableContract
         return $this->hasMany('App\Pedido');
     }
 
+    protected $fillable = ['nombre', 'apellidos', 'email', 'password','telefono','direccion', 'fechaNacimiento'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
