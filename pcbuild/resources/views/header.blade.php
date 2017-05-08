@@ -61,7 +61,15 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="{{ URL::asset('admin/productos') }}" class="active">Administrador</a></li>
+                                    
+                                     @if(Auth::check())
+                                         @if(Auth::user()->esadmin)
+                                            <li><a href="{{ URL::asset('admin/productos') }}" class="active">Administrador</a></li>
+                                        @endif
+                                    @endif
+                                         
+                                     
+
                                 </ul>
                             </div>
                         </div>
