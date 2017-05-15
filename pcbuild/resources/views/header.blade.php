@@ -38,8 +38,20 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="cart.blade.php"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                                    <li><a href="login.blade.php"><i class="fa fa-lock"></i> Login</a></li>
+                                    @if(Auth::check())
+                                        <li><a href=""><i class="fa"></i> Hola, <b>{{Auth::user()->nombre}}</b></a></li>
+                                        <li><a href="{{ URL::asset('/perfil') }}"><i class="fa"></i> Perfil</a></li>
+                                        <li><a href="{{ URL::asset('/pedidos') }}"><i class="fa"></i> Pedidos</a></li>
+                                        <li><a href="{{ URL::asset('/carrito') }}"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa"></i> Logout</a></li>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    @else
+                                        <li><a href="{{ URL::asset('/register') }}"><i class="fa"></i> Registro</a></li>
+                                        <li><a href="{{ URL::asset('/login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
