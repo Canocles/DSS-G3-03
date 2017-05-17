@@ -16,6 +16,10 @@ class User extends Model implements AuthenticatableContract
         return $this->hasMany('App\Pedido');
     }
 
+    public function carrito() {
+         return $this->hasOne('App\Carrito');
+    }
+
     protected $fillable = ['nombre', 'apellidos', 'email', 'password','telefono','direccion', 'fechaNacimiento'];
 
     /**
