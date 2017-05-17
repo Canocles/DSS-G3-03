@@ -41,6 +41,7 @@ Route::get('admin/categorias/anadir', function() { return view ('altacategoria')
 Route::get('admin/pedidos/anadir', function() { return view ('altapedido'); })->middleware('admin');
 Route::get('admin/linpedidos/anadir', function() { return view('altalinpedido'); })->middleware('admin');
 Route::get('contacto',function(){ return view('contacto'); });
+Route::get('perfil',function(){ return view('perfil'); });
 // Rutas para mostrar los formularios para modificar objetos
 Route::get('admin/productos/modificar/{id}', ['as' => 'admin/productos/modificar', 'uses' => 'ProductosController@mostrarProducto'])->middleware('admin');
 Route::get('admin/usuarios/modificar/{id}', ['as' => 'admin/usuarios/modificar', 'uses' => 'UsuariosController@mostrarUsuario'])->middleware('admin');
