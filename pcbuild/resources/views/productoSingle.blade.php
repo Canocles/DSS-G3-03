@@ -23,58 +23,18 @@
 				<div class="col-sm-5">
 					<div class="view-product">
 						<img src="{{ asset($producto->urlImagen) }}" alt="" />
-						<h3>ZOOM</h3>
-					</div>
-					<div id="similar-product" class="carousel slide" data-ride="carousel">
-						
-							<!-- Wrapper for slides -->
-								<div class="carousel-inner">
-								<div class="item active">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-								</div>
-								<div class="item">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-								</div>
-								<div class="item">
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-									<a href=""><img src="{{ asset($producto->urlImagen) }}" alt="" style="width:70px;height:70px;"></a>
-								</div>
-								
-							</div>
-
-							<!-- Controls -->
-							<a class="left item-control" href="#similar-product" data-slide="prev">
-							<i class="fa fa-angle-left"></i>
-							</a>
-							<a class="right item-control" href="#similar-product" data-slide="next">
-							<i class="fa fa-angle-right"></i>
-							</a>
 					</div>
 
 				</div>
 				<div class="col-sm-7">
 					<div class="product-information"><!--/product-information-->
-						<img src="{{ asset('images/product-details/new.jpg') }}" class="newarrival" alt="" />
 						<h2>{{$producto->nombre}}</h2>
 						<p>{{$producto->descripcion}}</p>
 						<img src="{{ asset('images/product-details/rating.png') }}" alt="" />
 						<span>
 							<span>{{$producto->precio}}</span>
-							<label>Cantidad:</label>
-							<input type="text" value="1" />
-							<button type="button" class="btn btn-fefault cart">
-								<i class="fa fa-shopping-cart"></i>
-								Añadir al carrito
-							</button>
+							<a href="{{ route('carrito-add', $producto->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
 						</span>
-						<p><b>Disponibilidad:</b> In Stock</p>
-						<p><b>Estado:</b> New</p>
-						<p><b>Marca:</b> Pcbuild</p>
 						<a href=""><img src="{{ asset('images/product-details/share.png') }}" class="share img-responsive"  alt="" /></a>
 					</div><!--/product-information-->
 				</div>

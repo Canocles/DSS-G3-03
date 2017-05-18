@@ -59,12 +59,6 @@
                                     </div>
                                 </div>
                                 </a>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href="#"><i class="fa fa-pencil"></i>Modificar</a></li>
-                                        <li><a href="#"><i class="fa fa-trash-o"></i>Borrar</a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     @endforeach
