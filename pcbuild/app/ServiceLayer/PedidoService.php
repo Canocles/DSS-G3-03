@@ -13,16 +13,21 @@ class PedidoService{
         $rb = false;
         DB::beginTransaction();
         $pedido = new Pedido();
-        $pedido->insert();
         if(!Auth::check()) $rb=true;
-        $pedido->user = Auth::user()->id;
-        $carrito = \Sesion::get('carrito');
+        $pedido->user_id = Auth::user()->id;
+        $fechaActual = date('d/m/Y');
+        $pedido->fecha = $fechaActual;
+        $carrito = \Session::get('carrito');
+        $pedido->save();
+        $num = 1;
         foreach ($carrito as $itemCarrito){
             $linea = new Linpedido();
-            $linea->producto = $itemCarrito->id;
+            $linea->num = $num;
+            $num = $num + 1;
+            $linea->producto_id = $itemCarrito->id;
             $linea->cantidad = $itemCarrito->cantidad;
-            $linea->pedido = $pedido->id;
-            $linea->insert();
+            $linea->pedido_id = $pedido->id;
+            $linea->save();
         }
         if ($rb) DB::rollback();
         else {

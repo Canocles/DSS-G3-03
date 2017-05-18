@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\ServiceLayer\PedidoService;
 
 class CarritoController extends Controller
 {
@@ -88,5 +89,11 @@ class CarritoController extends Controller
         }
 
         return view('detallesPedido', compact('carrito', 'total', 'cantidad'));
+    }
+
+    public function confirmar(){
+        $ap = PedidoService::procesarPedido();
+        if(!$ap) return redirect('/');
+        //else return redirect('/estodeberiadeserunerror');
     }
 }

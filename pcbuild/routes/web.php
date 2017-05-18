@@ -78,5 +78,6 @@ Route::get('carrito/añadir/{producto}', ['as' => 'carrito-add', 'uses' => 'Carr
 Route::get('carrito/eliminar/{producto}', ['as' => 'carrito-delete', 'uses' => 'CarritoController@delete']);
 Route::get('carrito/eliminartodo', ['as' => 'carrito-trash', 'uses' => 'CarritoController@trash']);
 Route::get('carrito/pedido', ['middleware' => 'auth', 'as' => 'carrito-to-pedido', 'uses' => 'CarritoController@order']);
+Route::get('carrito/pedido/confirmar','CarritoController@confirmar')->middleware('auth');
 
 Route::post('carrito/actualizar/{producto}', ['as' => 'carrito-update', 'uses' => 'CarritoController@update']);

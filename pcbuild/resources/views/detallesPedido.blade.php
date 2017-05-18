@@ -55,7 +55,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="#">Confirmar compra</a>
+                        <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{url('/carrito/pedido/confirmar')}}">Confirmar compra</a>
                     </div>
                 </div>
             </div>
