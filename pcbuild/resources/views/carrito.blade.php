@@ -58,7 +58,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="cart_total">
-                                                        <p class="cart_total_price">${{ number_format($item->precio * $item->cantidad,2) }} €</p>
+                                                        <p class="cart_total_price">${{ $totalLinea = number_format($item->precio * $item->cantidad,2) }} €</p>
                                                     </td>
                                                     <td class="cart_delete">
                                                         <a href="{{ route('carrito-delete', $item->id) }}" class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -69,17 +69,18 @@
                                         </table> 
                                     </div>
                                 </div>
+                            </ul>
                         </div>
                         <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="/">Seguir Comprando</a>
                     </div>
                     <div class="col-xs-12 col-md-4 col-lg-4">
                         <div class="total_area">
                             <ul>
-                                <li>Gastos de envio: <span>20 €</span></li>
-                                <li><strong>Total </strong><span>1000 €</span></li>
+                                <li>Gastos de envio estimados: <span>{{ $precioTotal * 1.5 / 100 }} €</span></li>
+                                <li><strong>Total </strong><span>{{ $precioTotal }} €</span></li>
                             </ul>
                         </div>
-                        <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="">Realizar Pedido</a>
+                        <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ route('carrito-to-pedido') }}">Realizar Pedido</a>
                     </div>
                 </div>
             </div>

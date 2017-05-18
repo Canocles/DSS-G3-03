@@ -9,27 +9,37 @@ class CarritoController extends Controller
 {
     public function __construct () {
         if (!\Session::has('carrito')) \Session::put('carrito', array());
+        if (!\Session::has('cantidadTotal')) \Session::put('cantidadTotal', 0);
     }
+
     // Mostrar carito
     public function show () {
         $carrito = \Session::get('carrito');
         $cantidadTotal = 0;
+        $precioTotal = $this->total();
         foreach($carrito as $item) {
-            $cantidadTotal = $cantidadTotal + $item->cantidad;
+            $cantidadTotal = $cantidadTotal + $item->cantidad;   
         }
-        return view('carrito', compact('carrito', 'cantidadTotal'));
+        \Session::put('cantidadTotal', $cantidadTotal);
+        return view('carrito', compact('carrito', 'cantidadTotal', 'precioTotal'));
     }
     // Añadir producto
     public function add ($id) {
         $carrito = \Session::get('carrito');
-        $producto = Producto::findOrFail($id);
-        if ($producto->cantidad == null) {
-            $producto->cantidad = 1;
-        } 
-        else {
-            $producto->cantidad++;
+        $encontrado = false;
+        foreach($carrito as $item) {
+            if ($item->id == $id) {
+                $encontrado = true;
+            }
         }
-        $carrito[$id] = $producto;
+        if ($encontrado) {
+            $carrito[$id]->cantidad++;
+        }
+        else {
+            $producto = Producto::findOrFail($id);
+            $producto->cantidad = 1;
+            $carrito[$id] = $producto;
+        }
         \Session::put('carrito', $carrito);
 
         return redirect()->route('carrito-show');
@@ -58,5 +68,25 @@ class CarritoController extends Controller
 
         return redirect()->route('carrito-show');
     }
-    // Calcular total
+
+    public function total () {
+        $carrito = \Session::get('carrito');
+        $precioTotal = 0.0;
+        foreach($carrito as $item) {
+            $precioTotal = $precioTotal + ($item->precio * $item->cantidad);
+        }
+
+        return $precioTotal;
+    }
+
+    public function order () {
+        $carrito = \Session::get('carrito');
+        $cantidad = \Session::get('cantidadTotal');
+        $total = $this->total();
+        if (count($carrito) <= 0) {
+            return redirect()->action('ProductosController@dameTodos');
+        }
+
+        return view('detallesPedido', compact('carrito', 'total', 'cantidad'));
+    }
 }

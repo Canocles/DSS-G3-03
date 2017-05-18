@@ -44,7 +44,7 @@
                                         <li><a href="{{ URL::asset('/pedidos') }}"><i class="fa"></i> Pedidos</a></li>
                                         <li><a href="{{ URL::asset('/carrito/show') }}">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
-                                            <span class="badge">{{ Session::has('carrito') ? count(Session::get('carrito')) : ''}}</span>
+                                            <span class="badge">{{ Session::has('cantidadTotal') ? Session::get('cantidadTotal') : ''}}</span>
                                             </a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa"></i> Logout</a></li>
@@ -54,7 +54,7 @@
                                     @else
                                         <li><a href="{{ URL::asset('/carrito/show') }}">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
-                                            <span class="badge">{{ Session::has('carrito') ? count(Session::get('carrito')) : ''}}</span>
+                                            <span class="badge">{{ Session::has('carrito') ? Session::get('cantidadTotal') : ''}}</span>
                                             </a></li>
                                         <li><a href="{{ URL::asset('/register') }}"><i class="fa"></i> Registro</a></li>
                                         <li><a href="{{ URL::asset('/login') }}"><i class="fa fa-lock"></i> Login</a></li>

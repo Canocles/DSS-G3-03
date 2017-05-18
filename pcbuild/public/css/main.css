@@ -147,11 +147,11 @@ a#scrollUp i{
 }
 
 .header-middle .container .row .col-sm-4{
-  padding-left: 0;
+  padding-left: 0.5rem;
 }
 
 .header-middle .container .row .col-sm-8 {
-	padding-right:0;
+	padding-right:0.5rem;
 }
 
 .usa {
@@ -2397,7 +2397,12 @@ h2.title {
   background:#3A9EF1;
   border: 0 none;
   border-radius: 0;
-  margin-top: 16px;
+  margin-top: 10px;
+}
+.btn-primary-outline {
+  color: #3A9EF1;
+  background-color: transparent;
+  border-color: #3A9EF1;
 }
 
 .blank-arrow {
@@ -2532,4 +2537,20 @@ h2.title {
 
 input[type="number"] {
   width: 60px;
+}
+
+.white-card-movile {
+  background-color: #d9edf7;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.en-linea {
+  display: inline;
+}
+
+.white-card-bottom {
+  background-color: #d9edf7;
+  padding: 15px;
+  margin-bottom: 4px;
 }
