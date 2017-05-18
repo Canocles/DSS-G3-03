@@ -48,13 +48,13 @@
                                         <img src="{{ asset($item->urlImagen) }}" alt="" style="width:200px;height:200px;"/>
                                         <h2>{{$item->precio}} €</h2>
                                         <p>{{$item->nombre}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="{{ route('carrito-add', $item->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>{{$item->precio}}</h2>
                                             <p>{{$item->nombre}}</p>
-                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                            <a href="{{ route('carrito-add', $item->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
                                         </div>
                                     </div>
                                 </div>

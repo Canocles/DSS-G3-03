@@ -70,3 +70,11 @@ Route::post('admin/linpedidos/modificar/{num}/{pedido_id}', ['as' => 'admin/linp
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+// Carrito
+Route::get('carrito/show', ['as' => 'carrito-show', 'uses' => 'CarritoController@show']);
+Route::get('carrito/añadir/{producto}', ['as' => 'carrito-add', 'uses' => 'CarritoController@add']);
+Route::get('carrito/eliminar/{producto}', ['as' => 'carrito-delete', 'uses' => 'CarritoController@delete']);
+Route::get('carrito/eliminartodo', ['as' => 'carrito-trash', 'uses' => 'CarritoController@trash']);
+
+Route::post('carrito/actualizar/{producto}', ['as' => 'carrito-update', 'uses' => 'CarritoController@update']);

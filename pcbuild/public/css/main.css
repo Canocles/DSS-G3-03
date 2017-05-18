@@ -1536,7 +1536,6 @@ h2.title {
 
 .breadcrumbs .breadcrumb {
   background:transparent;
-  margin-bottom: 75px;
   padding-left: 0;
 }
 
@@ -1620,13 +1619,13 @@ h2.title {
 
 #cart_items .cart_info .cart_price p {
   color:#696763;
-  font-size: 18px
+  font-size: 16px
 }
 
 
 #cart_items .cart_info .cart_total_price {
   color: #3A9EF1;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .cart_product {
@@ -1703,7 +1702,6 @@ h2.title {
   border: 1px solid #E6E4DF;
   color: #696763;
   padding: 30px 25px 30px 0;
-  margin-bottom: 80px;
 }
 
 .total_area span {
@@ -2524,4 +2522,14 @@ h2.title {
   color: #3A9EF1;
 }
 
+.table-cart {
+  margin-bottom: 30px;
+}
 
+.table-cart img {
+  width: 100px;
+}
+
+input[type="number"] {
+  width: 60px;
+}

@@ -42,13 +42,20 @@
                                         <li><a href=""><i class="fa"></i> Hola, <b>{{Auth::user()->nombre}}</b></a></li>
                                         <li><a href="{{ URL::asset('/perfil') }}"><i class="fa"></i> Perfil</a></li>
                                         <li><a href="{{ URL::asset('/pedidos') }}"><i class="fa"></i> Pedidos</a></li>
-                                        <li><a href="{{ URL::asset('/carrito') }}"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                                        <li><a href="{{ URL::asset('/carrito/show') }}">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
+                                            <span class="badge">{{ Session::has('carrito') ? count(Session::get('carrito')) : ''}}</span>
+                                            </a></li>
                                         <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="fa"></i> Logout</a></li>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     @else
+                                        <li><a href="{{ URL::asset('/carrito/show') }}">
+                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
+                                            <span class="badge">{{ Session::has('carrito') ? count(Session::get('carrito')) : ''}}</span>
+                                            </a></li>
                                         <li><a href="{{ URL::asset('/register') }}"><i class="fa"></i> Registro</a></li>
                                         <li><a href="{{ URL::asset('/login') }}"><i class="fa fa-lock"></i> Login</a></li>
                                     @endif
@@ -72,16 +79,12 @@
                                 </button>
                             </div>
                             <div class="mainmenu pull-left">
-                                <ul class="nav navbar-nav collapse navbar-collapse">
-                                    
+                                <ul class="nav navbar-nav collapse navbar-collapse">  
                                      @if(Auth::check())
                                          @if(Auth::user()->esadmin)
                                             <li><a href="{{ URL::asset('admin/productos') }}" class="active">Administrador</a></li>
                                         @endif
                                     @endif
-                                         
-                                     
-
                                 </ul>
                             </div>
                         </div>
