@@ -61,4 +61,24 @@ class UsuariosController extends Controller
 
         return redirect('admin/usuarios');
     }
+
+    public function updateUser (Request $request, $id) {
+        $usuario = User::find($id);
+        $usuario->nombre = $request->input('nombre');
+        $usuario->apellidos = $request->input('apellidos');
+        $usuario->email = $request->input('email');
+        $usuario->fechaNacimiento = $request->input('fecha');
+        $usuario->save();
+
+        return redirect('/perfil');
+    }
+
+    public function updateUserDir (Request $request, $id) {
+        $usuario = User::find($id);
+        $usuario->direccion = $request->input('direccion');
+        $usuario->telefono = $request->input('telefono');
+        $usuario->save();
+
+        return redirect('/perfil');
+    }
 }

@@ -39,9 +39,7 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     @if(Auth::check())
-                                        <li><a href=""><i class="fa"></i> Hola, <b>{{Auth::user()->nombre}}</b></a></li>
-                                        <li><a href="{{ URL::asset('/perfil') }}"><i class="fa"></i> Perfil</a></li>
-                                        <li><a href="{{ URL::asset('/pedidos') }}"><i class="fa"></i> Pedidos</a></li>
+                                        <li><a href="{{ URL::asset('/perfil') }}"><i class="fa"></i> Hola, <b>{{Auth::user()->nombre}}</b></a></li>
                                         <li><a href="{{ URL::asset('/carrito/show') }}">
                                             <i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
                                             <span class="badge">{{ Session::has('cantidadTotal') && Session::get('cantidadTotal')!=0 ? Session::get('cantidadTotal') : ''}}</span>

@@ -25,6 +25,21 @@ class PedidosController extends Controller
         return view('modificarPedido', compact('pedido'));
     }
 
+    public function mostrarPedidoUsuario ($id) {
+        $usuario = User::findOrFail($id);
+        $pedidos = Pedido::where('user_id', $usuario->id)->paginate(5);
+        foreach($pedidos as $pedido) {
+            $cantidadArticulos = 0;
+            $linpedidos = $pedido->linpedidos;
+            foreach($linpedidos as $linpedido) {
+                $cantidadArticulos = $cantidadArticulos + $linpedido->cantidad;
+            }
+            $pedido->cantidad = $cantidadArticulos;
+        }
+
+        return view('mostrarPedidosUsuario', compact('pedidos'));
+    }
+
     public function mostrarPorPedido($pedidoId) {
         $orden = '';
         $linpedidos = Linpedido::where('pedido_id', '=', $pedidoId)->paginate(5);

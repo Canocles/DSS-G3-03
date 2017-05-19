@@ -41,7 +41,7 @@ Route::get('admin/categorias/anadir', function() { return view ('altacategoria')
 Route::get('admin/pedidos/anadir', function() { return view ('altapedido'); })->middleware('admin');
 Route::get('admin/linpedidos/anadir', function() { return view('altalinpedido'); })->middleware('admin');
 Route::get('contacto',function(){ return view('contacto'); });
-Route::get('perfil',function(){ return view('perfil'); });
+Route::get('perfil',function(){ return view('perfil'); })->middleware('auth');
 // Rutas para mostrar los formularios para modificar objetos
 Route::get('admin/productos/modificar/{id}', ['as' => 'admin/productos/modificar', 'uses' => 'ProductosController@mostrarProducto'])->middleware('admin');
 Route::get('admin/usuarios/modificar/{id}', ['as' => 'admin/usuarios/modificar', 'uses' => 'UsuariosController@mostrarUsuario'])->middleware('admin');
@@ -79,5 +79,12 @@ Route::get('carrito/eliminar/{producto}', ['as' => 'carrito-delete', 'uses' => '
 Route::get('carrito/eliminartodo', ['as' => 'carrito-trash', 'uses' => 'CarritoController@trash']);
 Route::get('carrito/pedido', ['middleware' => 'auth', 'as' => 'carrito-to-pedido', 'uses' => 'CarritoController@order']);
 Route::get('carrito/pedido/confirmar','CarritoController@confirmar')->middleware('auth');
-
 Route::post('carrito/actualizar/{producto}', ['as' => 'carrito-update', 'uses' => 'CarritoController@update']);
+
+// Modificar Usuario desde perfil de usuario
+Route::post('perfil/modificar/{id}', ['as' => 'modificar-usuario', 'uses' => 'UsuariosController@updateUser'])->middleware('auth');
+Route::post('perfil/modificar/direccion/{id}', ['as' => 'modificar-direccion', 'uses' => 'UsuariosController@updateUserDir'])->middleware('auth');
+
+// Mostrar Pedidos de usuario concreto en perfil de usuario
+Route::get('perfil/{id}/pedidos', ['as' => 'pedidos-user', 'uses' => 'PedidosController@mostrarPedidoUsuario']);
+Route::get('perfil/pedidos/{pedido}', ['as' => 'mostrar-linpedidos', 'uses' => 'LinPedidosController@mostrarLinpedidosPedidoUsuario']);

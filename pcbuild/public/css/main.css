@@ -2542,15 +2542,49 @@ input[type="number"] {
 .white-card-movile {
   background-color: #d9edf7;
   padding: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 3px;
 }
 
 .en-linea {
   display: inline;
 }
 
-.white-card-bottom {
-  background-color: #d9edf7;
-  padding: 15px;
-  margin-bottom: 4px;
+.m-b-1 {
+  margin-bottom: 1rem !important;
+}
+
+.m-b-5 {
+  margin-bottom: 5rem !important;
+}
+
+.m-t-3 {
+  margin-top: 3rem !important;
+}
+.pull-xs-right {
+  float: right !important;
+}
+
+.acc-block.with-bottom {
+  margin-bottom: 10px;
+}
+
+.acc-block {
+  border: #2685d6 1px solid;
+}
+
+.acc-block-title {
+  clear: both;
+  padding: 1rem;
+  margin-bottom: 0;
+  color: #444;
+  text-decoration: none;
+}
+
+.acc-block-title a, .acc-block-title a:visited {
+  font-size: 2rem;
+  display: block;
+  padding: 1rem;
+  color: #888;
+  border-bottom: #c5c5c5 1px solid;
+  margin-bottom: -1px;
 }

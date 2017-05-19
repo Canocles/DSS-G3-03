@@ -21,6 +21,12 @@ class LinPedidosController extends Controller
         return view ('modificarLinpedido', compact('linpedido', 'orden'));
     }
 
+    public function mostrarLinpedidosPedidoUsuario ($idPedido) {
+        $linpedidos = Linpedido::where('pedido_id', $idPedido)->paginate(5);
+
+        return view('mostrarLinpedidosUsuario', compact('linpedidos', 'idPedido'));
+    }
+
     public function ordenar($orden) {
 		if ($orden == 'desc')
 			$linpedidos = Linpedido::orderBy('pedido_id', 'desc')->paginate(5);
