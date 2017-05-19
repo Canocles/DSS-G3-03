@@ -1564,7 +1564,7 @@ h2.title {
 
 #cart_items .cart_info {
   border: 1px solid #E6E4DF;
-  margin-bottom: 50px
+  margin-bottom: 50px;
 }
 
 
@@ -1701,7 +1701,8 @@ h2.title {
 #do_action .total_area, #do_action .chose_area {
   border: 1px solid #E6E4DF;
   color: #696763;
-  padding: 30px 25px 30px 0;
+  padding: 10px;
+  margin-bottom: 1rem;
 }
 
 .total_area span {
@@ -2528,7 +2529,7 @@ h2.title {
 }
 
 .table-cart {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
 }
 
 .table-cart img {
@@ -2587,4 +2588,9 @@ input[type="number"] {
   color: #888;
   border-bottom: #c5c5c5 1px solid;
   margin-bottom: -1px;
+}
+
+.collapse-mio {
+  margin-right: 40px;
+  margin-top: 15px;
 }
