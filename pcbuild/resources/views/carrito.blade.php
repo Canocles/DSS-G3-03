@@ -76,7 +76,7 @@
                     <div class="col-xs-12 col-md-4 col-lg-4">
                         <div class="total_area">
                             <ul>
-                                <li>Gastos de envio estimados: <span>{{ $precioTotal * 1.5 / 100 }} €</span></li>
+                                <li>Gastos de envio estimados: <span>{{ number_format($precioTotal * 1.5 / 100, 2) }} €</span></li>
                                 <li><strong>Total </strong><span>{{ $precioTotal }} €</span></li>
                             </ul>
                         </div>

@@ -30,11 +30,15 @@ class PedidosController extends Controller
         $pedidos = Pedido::where('user_id', $usuario->id)->paginate(5);
         foreach($pedidos as $pedido) {
             $cantidadArticulos = 0;
+            $pagoPedido = 0;
             $linpedidos = $pedido->linpedidos;
             foreach($linpedidos as $linpedido) {
+                $producto = $linpedido->producto;
                 $cantidadArticulos = $cantidadArticulos + $linpedido->cantidad;
+                $pagoPedido = $pagoPedido + ($linpedido->cantidad * $producto->precio);
             }
             $pedido->cantidad = $cantidadArticulos;
+            $pedido->total = $pagoPedido;
         }
 
         return view('mostrarPedidosUsuario', compact('pedidos'));

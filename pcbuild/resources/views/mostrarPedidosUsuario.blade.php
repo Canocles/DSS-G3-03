@@ -21,9 +21,10 @@
 						<div class="white-card-movile m-b-5">
                             <table class="table table-collapsed table-condensed">
                                 <tr>
-                                    <th>Pedido
+                                    <th>Nº Pedido</th>
                                     <th>Fecha</th>
                                     <th>Artículos</th>
+                                    <th>Total</th>
                                     <th></th>
                                 </tr>
                                 @foreach($pedidos as $pedido)
@@ -31,6 +32,7 @@
                                         <td>{{ $pedido->id }}</td>
                                         <td>{{ $pedido->fecha }}</td>
                                         <td>{{ $pedido->cantidad }}</td>
+                                        <td>{{ $pedido->total }} €</td>
                                         <td><a href="{{ route('mostrar-linpedidos', $pedido->id) }}"><i class="fa fa-eye"></i></a></td>
                                     </tr>
                                 @endforeach

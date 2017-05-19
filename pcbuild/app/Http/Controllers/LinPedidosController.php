@@ -23,7 +23,6 @@ class LinPedidosController extends Controller
 
     public function mostrarLinpedidosPedidoUsuario ($idPedido) {
         $linpedidos = Linpedido::where('pedido_id', $idPedido)->paginate(5);
-
         return view('mostrarLinpedidosUsuario', compact('linpedidos', 'idPedido'));
     }
 
