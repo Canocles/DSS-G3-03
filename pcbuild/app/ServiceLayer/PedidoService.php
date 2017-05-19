@@ -32,6 +32,7 @@ class PedidoService{
         if ($rb) DB::rollback();
         else {
             \Session::forget('carrito');
+            \Session::forget('cantidadTotal');
             DB::commit();
             }
         return $rb;
