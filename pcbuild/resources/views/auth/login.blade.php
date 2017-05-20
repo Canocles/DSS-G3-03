@@ -55,13 +55,16 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    Has olvidad tu contraseña?
                                 </a>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
+         <div class="col-md-8 col-md-offset-2 m-b-5">
+            <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="redirect">Continuar con Facebook <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
         </div>
     </div>
 </div>

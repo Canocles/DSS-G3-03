@@ -20,7 +20,7 @@ class User extends Model implements AuthenticatableContract
          return $this->hasOne('App\Carrito');
     }
 
-    protected $fillable = ['nombre', 'apellidos', 'email', 'password','telefono','direccion', 'fechaNacimiento'];
+    protected $fillable = ['nombre', 'apellidos', 'email', 'password','telefono','direccion', 'fechaNacimiento', 'social', 'esadmin'];
 
     /**
      * The attributes that should be hidden for arrays.

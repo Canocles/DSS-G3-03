@@ -88,3 +88,7 @@ Route::post('perfil/modificar/direccion/{id}', ['as' => 'modificar-direccion', '
 // Mostrar Pedidos de usuario concreto en perfil de usuario
 Route::get('perfil/{id}/pedidos', ['as' => 'pedidos-user', 'uses' => 'PedidosController@mostrarPedidoUsuario']);
 Route::get('perfil/pedidos/{pedido}', ['as' => 'mostrar-linpedidos', 'uses' => 'LinPedidosController@mostrarLinpedidosPedidoUsuario']);
+
+// Rutas de Socialite
+Route::get('/redirect', 'SocialController@redirect');
+Route::get('/callback', 'SocialController@callback');
