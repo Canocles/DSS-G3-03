@@ -93,7 +93,7 @@ class CarritoController extends Controller
 
     public function confirmar(){
         $ap = PedidoService::procesarPedido();
-        if(!$ap) return redirect('/');
-        //else return redirect('/estodeberiadeserunerror');
+        if(!$ap) return redirect('carrito/pedido/confirmado');
+        else return redirect('carrito/pedido/error');
     }
 }
