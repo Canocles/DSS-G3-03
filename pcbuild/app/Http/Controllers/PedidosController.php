@@ -16,7 +16,7 @@ class PedidosController extends Controller
      */
     public function mostrarPedidos() {
         $orden = '';
-        $pedidos = Pedido::paginate(5);
+        $pedidos = Pedido::orderBy('id', 'desc')->paginate(5);
         return view('mostrarPedidos', compact('pedidos', 'orden'));
     }
 
@@ -27,7 +27,7 @@ class PedidosController extends Controller
 
     public function mostrarPedidoUsuario ($id) {
         $usuario = User::findOrFail($id);
-        $pedidos = Pedido::where('user_id', $usuario->id)->paginate(5);
+        $pedidos = Pedido::where('user_id', $usuario->id)->orderBy('id','desc')->paginate(5);
         foreach($pedidos as $pedido) {
             $cantidadArticulos = 0;
             $pagoPedido = 0;

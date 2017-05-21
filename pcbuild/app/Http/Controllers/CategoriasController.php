@@ -9,7 +9,7 @@ class CategoriasController extends Controller
 {
     public function mostrarCategorias(){
         $orden = '';
-        $categorias = Categoria::paginate(5);
+        $categorias = Categoria::orderBy('id', 'desc')->paginate(5);
         return view('mostrarCategorias', compact('categorias', 'orden'));
     }
 

@@ -11,23 +11,23 @@ class ProductosController extends Controller
 	//Consultas y búsquedas
     public function dameTodos(){
         $productos =Producto::paginate(6);//DB::table('productos')->get();//
-		$categorias=Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
        // return $productos;
 	   return view('index',compact('productos','categorias'));//->with('productos',$productos);
 	}
     public function dameAdmin(){
-		$categorias=Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
 		return view('admin',compact('categorias'));
 	}
 
 	public function dameCategorias() {
-		$categorias = Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
 		return view('altaproducto', compact('categorias'));
 	}
 
     public function buscaID($id){
 		$producto = Producto::findOrFail($id);
-		$categorias=Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
 		//return $producto;
 		return view('productoSingle',compact('producto','categorias'));
 	}
@@ -35,7 +35,7 @@ class ProductosController extends Controller
     public function buscarNombre(Request $request){
 		$busqueda=$request->input('producto');
 		$productos = Producto::where('nombre', 'like', '%'.$busqueda.'%')->paginate(6);
-		$categorias=Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
        /// return $productos;
 	   	return view('index',compact('productos','categorias'));
     }
@@ -62,7 +62,7 @@ class ProductosController extends Controller
 	}
 	
     public function buscarCategoria($nombreCategoria){
-		$categorias=Categoria::all();
+		$categorias=Categoria::orderBy('nombre', 'asc')->get();
         $idCategoria = Categoria::where('nombre', $nombreCategoria)->first();
         $productos = Producto::where('categoria', $idCategoria->id)->paginate(6);
         //return $productos;
