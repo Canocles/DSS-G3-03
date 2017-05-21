@@ -57,5 +57,15 @@ class PedidosTableSeeder extends Seeder
             'fecha' => "30/09/2016",
             'user_id' => 1
         ]);
+
+        DB::table('pedidos')->insert([
+            'fecha' => "20/05/2017",
+            'user_id' => 2
+        ]);
+
+        DB::table('pedidos')->insert([
+            'fecha' => "21/05/2017",
+            'user_id' => 2
+        ]);
     }
 }
