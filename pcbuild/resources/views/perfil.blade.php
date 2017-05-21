@@ -5,7 +5,7 @@
     <div class="container">
 		<div class"articulos-en-carrito">
             <div class="row">
-                <div class="col-xs-12 col-md-8 col-lg-8">
+                <div class="col-xs-12 col-md-10 col-lg-10">
                     <div class="bloque-datos">
                         <div class="white-card-movile">
                             <div class="row">
@@ -107,7 +107,7 @@
 						</div>
 					</div>
                 </div>
-                <div class="col-xs-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-md-2 col-lg-2">
                     <div class="bloque-confirmacion">
 						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil') }}">Mis datos</a>
 						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil/pedidos') }}">Mis Pedidos</a>

@@ -5,9 +5,8 @@
     <h2 class="title text-center">Productos</h2>
     <table class="table table-collapsed table-condensed">
         <tr>
-            <th>ID Producto</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
+            <th>Producto</th>
+            <th></th>
             <th>Precio 
             @if ($orden == 'desc')
                 <a href="{{ action('ProductosController@ordenar', ['orden' => 'asc']) }}"><i class="fa fa-sort-asc"></i></a></th>
@@ -21,9 +20,10 @@
         </tr>
         @foreach($productos as $p)
             <tr>
-                <td>{{ $p->id }}</td>
+                <td>
+                    <a class="mostrar-producto" href="{{ url('/productos/ver_producto/'.$p->id )}}"><img src="{{ asset($p->urlImagen) }}" alt=""></a>
+                </td>
                 <td>{{ $p->nombre }}</td>
-                <td>{{ $p->descripcion }}</td>
                 <td>{{ $p->precio }} €</td>
                 <td><a href="{{ action('ProductosController@delete', $p->id) }}"><i class="fa fa-trash-o"></a></td>
                 <td><a href="{{ route('admin/productos/modificar', $p->id) }}"><i class="fa fa-pencil"></a></td>

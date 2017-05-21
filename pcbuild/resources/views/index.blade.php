@@ -40,7 +40,7 @@
                 </div>
                 <div class="row">
                     @foreach($productos as $item)
-                        <div class="col-md-4 col-sm-4 col-xs-6 col-lg-4">
+                        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
                             <div class="product-image-wrapper">
                                 <a href="{{ route('producto',$item->id) }}">
                                 <div class="single-products">

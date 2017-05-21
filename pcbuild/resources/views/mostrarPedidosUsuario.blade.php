@@ -5,7 +5,7 @@
     <div class="container">
 		<div class"articulos-en-carrito">
             <div class="row">
-                <div class="col-xs-12 col-md-8 col-lg-8">
+                <div class="col-xs-12 col-md-10 col-lg-10">
                     <div class="bloque-pedidos">
                         <div class="white-card-movile">
                             <div class="row">
@@ -50,7 +50,7 @@
                                                                             <a href="{{ url('/productos/ver_producto/'.$linpedido->producto->id )}}"><img src="{{ asset($linpedido->producto->urlImagen) }}" alt=""></a>
                                                                         </td>
                                                                         <td class="cart_description">
-                                                                            <h4><a href="">{{ $linpedido->producto->nombre }}</a></h4>
+                                                                            <h5><a href="{{ url('/productos/ver_producto/'.$linpedido->producto->id )}}">{{ $linpedido->producto->nombre }}</a></h5>
                                                                             <p>Web ID: {{ $linpedido->producto->id }}</p>
                                                                         </td>
                                                                         <td class="cart_price">
@@ -60,7 +60,7 @@
                                                                             <p>{{ $linpedido->cantidad }}</p>
                                                                         </td>
                                                                         <td class="cart_total">
-                                                                            <p class="cart_total_price">${{ $totalLinea = number_format($linpedido->producto->precio * $linpedido->cantidad,2) }} €</p>
+                                                                            <p class="cart_total_price">{{ $totalLinea = number_format($linpedido->producto->precio * $linpedido->cantidad,2) }} €</p>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -78,7 +78,7 @@
                         </section>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-4 col-lg-4">
+                <div class="col-xs-12 col-md-2 col-lg-2">
                     <div class="bloque-confirmacion">
 						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil') }}">Mis datos</a>
 						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil/pedidos') }}">Mis Pedidos</a>

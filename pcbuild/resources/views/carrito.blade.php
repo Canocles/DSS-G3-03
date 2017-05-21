@@ -11,7 +11,7 @@
         </div>
         <section id="do_action">
                 <div class="row">
-                    <div class="col-xs-12 col-md-8 col-lg-8">
+                    <div class="col-xs-12 col-md-9 col-lg-9">
                         <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ route('carrito-trash') }}"><i class="fa fa-trash-o"></i> Vaciar carrito</a>
                         <div class="chose_area">
                             <ul class="numero_articulos">
@@ -42,23 +42,23 @@
                                                         <a href="{{ url('/productos/ver_producto/'.$item->id )}}"><img src="{{ asset($item->urlImagen) }}" alt=""></a>
                                                     </td>
                                                     <td class="cart_description">
-                                                        <h4><a href="">{{ $item->nombre }}</a></h4>
+                                                        <h5><a href="{{ url('/productos/ver_producto/'.$item->id )}}">{{ $item->nombre }}</a></h5>
                                                         <p>Web ID: {{ $item->id }}</p>
                                                     </td>
                                                     <td class="cart_price">
-                                                        <p>{{ $item->precio }} €</p>
+                                                        <p class="cart_price">{{ $item->precio }} €</p>
                                                     </td>
                                                     <td class="cart_quantity">
                                                         <div class="cart_quantity_button">
                                                              <form action="{{ route('carrito-update', $item->id) }}" method="POST">
                                                                 {{ csrf_field() }}
-                                                                <input type="number" name="cantidad" min="1" max="50" value="{{ $item->cantidad }}" />
+                                                                <input class="cart_quantity_input"type="number" name="cantidad" min="1" max="50" value="{{ $item->cantidad }}" />
                                                                 <button type="submit" class="btn btn-warning"><i class="fa fa-refresh"></i></button>
                                                             </form>
                                                         </div>
                                                     </td>
                                                     <td class="cart_total">
-                                                        <p class="cart_total_price">${{ $totalLinea = number_format($item->precio * $item->cantidad,2) }} €</p>
+                                                        <p class="cart_total_price">{{ $totalLinea = number_format($item->precio * $item->cantidad,2) }} €</p>
                                                     </td>
                                                     <td class="cart_delete">
                                                         <a href="{{ route('carrito-delete', $item->id) }}" class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -73,7 +73,7 @@
                         </div>
                         <a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="/">Seguir Comprando</a>
                     </div>
-                    <div class="col-xs-12 col-md-4 col-lg-4">
+                    <div class="col-xs-12 col-md-3 col-lg-3">
                         <div class="total_area">
                             <ul>
                                 <li>Gastos de envio estimados: <span>{{ number_format($precioTotal * 1.5 / 100, 2) }} €</span></li>
