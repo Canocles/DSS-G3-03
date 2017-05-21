@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pedido;
 use App\User;
 use App\Linpedido;
+use Auth;
 
 class PedidosController extends Controller
 {
@@ -25,7 +26,8 @@ class PedidosController extends Controller
         return view('modificarPedido', compact('pedido'));
     }
 
-    public function mostrarPedidoUsuario ($id) {
+    public function mostrarPedidoUsuario () {
+        $id = Auth::User()->id;
         $usuario = User::findOrFail($id);
         $pedidos = Pedido::where('user_id', $usuario->id)->orderBy('id','desc')->paginate(5);
         foreach($pedidos as $pedido) {
@@ -37,6 +39,7 @@ class PedidosController extends Controller
                 $cantidadArticulos = $cantidadArticulos + $linpedido->cantidad;
                 $pagoPedido = $pagoPedido + ($linpedido->cantidad * $producto->precio);
             }
+            $pedido->lineas = $linpedidos;
             $pedido->cantidad = $cantidadArticulos;
             $pedido->total = $pagoPedido;
         }
@@ -78,6 +81,9 @@ class PedidosController extends Controller
     public function create(Request $request){
         $pedido = new pedido();
         $usuario = User::where('email', '=', $request->email)->first();
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
         if ($usuario != NULL) {
             $pedido->fecha = date('d/m/Y');
             $pedido->user_id = $usuario->id;

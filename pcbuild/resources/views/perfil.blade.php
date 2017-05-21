@@ -25,18 +25,38 @@
 								<div class="col-xs-12 col-md-6 m-b-1">
 									<label> Nombre </label>
 									<input type="text" name="nombre" value="{{ Auth::user()->nombre }}" class="form-control"></input>
+									@if($errors->has('nombre'))
+										<span class="help-block">
+											<strong>{{ $errors->first('nombre') }}</strong>
+										</span>
+									@endif
 								</div>
 								<div class="col-xs-12 col-md-6 m-b-1">
 									<label> Apellidos </label>
 									<input type="text" name="apellidos" value="{{ Auth::user()->apellidos }}" class="form-control"></input>
+									@if($errors->has('apellidos'))
+										<span class="help-block">
+											<strong>{{ $errors->first('apellidos') }}</strong>
+										</span>
+									@endif
 								</div>
 								<div class="col-xs-12 col-md-6 m-b-1">
 									<label> Email </label>
 									<input type="email" name="email" value="{{ Auth::user()->email }}" class="form-control"></input>
+									@if($errors->has('email'))
+										<span class="help-block">
+											<strong>{{ $errors->first('email') }}</strong>
+										</span>
+									@endif
 								</div>
 								<div class="col-xs-12 col-md-6 m-b-1">
 									<label> Fecha de Nacimiento </label>
 									<input type="text" name="fecha" value="{{ Auth::user()->fechaNacimiento }}" class="form-control"></input>
+									@if($errors->has('fecha'))
+										<span class="help-block">
+											<strong>{{ $errors->first('fecha') }}</strong>
+										</span>
+									@endif
 								</div>
 								<div class="col-xs-12">
 									<button type="submit" class="btn btn-primary-outline pull-xs-right"> Guardar cambios</button>
@@ -64,10 +84,20 @@
 									<div class="col-xs-12 col-md-6 m-b-1">
 										<label> Dirección </label>
 										<input type="text" name="direccion" value="{{ Auth::user()->direccion }}" class="form-control"></input>
+										@if($errors->has('direccion'))
+											<span class="help-block">
+												<strong>{{ $errors->first('direccion') }}</strong>
+											</span>
+										@endif
 									</div>
 									<div class="col-xs-12 col-md-6 m-b-1">
 										<label> Teléfono </label>
 										<input type="tel" name="telefono" value="{{ Auth::user()->telefono }}" class="form-control"></input>
+										@if($errors->has('telefono'))
+											<span class="help-block">
+												<strong>{{ $errors->first('telefono') }}</strong>
+											</span>
+										@endif
 									</div>
 									<div class="col-xs-12">
 										<button type="submit" class="btn btn-primary-outline pull-xs-right"> Guardar cambios</button>
@@ -80,7 +110,7 @@
                 <div class="col-xs-12 col-md-4 col-lg-4">
                     <div class="bloque-confirmacion">
 						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil') }}">Mis datos</a>
-						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ route('pedidos-user', Auth::user()->id) }}">Mis Pedidos</a>
+						<a class="btn btn-primary btn-lg btn-block btn-finish-cart" href="{{ URL::asset('/perfil/pedidos') }}">Mis Pedidos</a>
                     </div>
                 </div>
             </div>

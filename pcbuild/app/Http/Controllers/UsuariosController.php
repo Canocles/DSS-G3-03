@@ -86,7 +86,6 @@ class UsuariosController extends Controller
         $this->validate($request, [
             'nombre' => 'required|max:60',
             'apellidos' => 'required|max:60',
-			'telefono' => 'required|integer',
 			'fechaNacimiento' => 'required|date_format:d/m/Y',
             'email' => 'required|email',
         ]);

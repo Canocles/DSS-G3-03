@@ -8,10 +8,30 @@
             <h2>Producto</h2>
             <form action="{{ url('admin/productos/anadir') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" />
-                <input type="number" name="precio" id="precio" placeholder="Precio" />
-                <input type="file" name="file" id="file" placeholder="URL imágen" />
-                <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" />
+                <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}" placeholder="Nombre" />
+                @if($errors->has('nombre'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('nombre') }}</strong>
+                    </span>
+                @endif
+                <input type="number" name="precio" id="precio" value="{{ old('precio') }}" placeholder="Precio" />
+                @if($errors->has('precio'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('precio') }}</strong>
+                    </span>
+                @endif
+                <input type="file" name="file" id="file" value="{{ old('file') }}" placeholder="URL imágen" />
+                @if($errors->has('file'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('file') }}</strong>
+                    </span>
+                @endif
+                <input type="text" name="descripcion" id="descripcion" value="{{ old('descripcion') }}" placeholder="Descripcion" />
+                @if($errors->has('descripcion'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('descripcion') }}</strong>
+                    </span>
+                @endif
                 <select name="categoria">
                     @foreach($categorias as $cat)
                         <option value="{{ $cat->nombre }}">{{ $cat->nombre }}</option>

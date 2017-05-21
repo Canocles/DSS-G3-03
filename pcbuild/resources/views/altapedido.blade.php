@@ -8,7 +8,12 @@
             <h2>Usuario</h2>
             <form action="{{ url('admin/pedidos/anadir') }}" method="POST">
                 {{ csrf_field() }}
-                <input type="email" name="email" placeholder="Email Usuario" />
+                <input type="email" name="email" value="{{ old('email') }}" placeholder="Email Usuario" />
+                @if($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>
         </div><!--/login form-->

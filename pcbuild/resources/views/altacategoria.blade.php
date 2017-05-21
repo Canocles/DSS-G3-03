@@ -8,8 +8,18 @@
             <h2>Añadir Categoría</h2>
             <form action="{{ url('admin/categorias/anadir') }}" method="POST">
                 {{ csrf_field() }}
-                <input type="text" name="nombre" placeholder="Nombre" />
-                <input type="text" name="descripcion" placeholder="Descripción" />
+                <input type="text" name="nombre" value="{{ old('nombre') }}" placeholder="Nombre" />
+                @if($errors->has('nombre'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('nombre') }}</strong>
+                    </span>
+                @endif
+                <input type="text" name="descripcion" value="{{ old('descripcion') }}" placeholder="Descripción" />
+                @if($errors->has('descripcion'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('descripcion') }}</strong>
+                    </span>
+                @endif
 
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>

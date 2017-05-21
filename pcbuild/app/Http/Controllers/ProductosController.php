@@ -94,7 +94,6 @@ class ProductosController extends Controller
             'nombre' => 'required|max:60',
             'descripcion' => 'required|max:255',
 			'precio' => 'required|integer',
-			'file' => 'required',
 			'categoria' => 'required',
         ]);
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
@@ -121,8 +120,7 @@ class ProductosController extends Controller
 		$this->validate($request, [
             'nombre' => 'required|max:60',
             'descripcion' => 'required|max:255',
-			'precio' => 'required|integer',
-			'file' => 'required',
+			'precio' => 'required|numeric',
 			'categoria' => 'required',
         ]);
 		

@@ -9,6 +9,11 @@
             <form action="{{ route('admin/linpedidos/modificar', [$linpedido->num, $linpedido->pedido_id]) }}" method="POST">
                 {{ csrf_field() }}
                 <input type="number" name="cantidad" value="{{ $linpedido->cantidad }}" />
+                @if($errors->has('cantidad'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('cantidad') }}</strong>
+                    </span>
+                @endif
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>
         </div><!--/login form-->

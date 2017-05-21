@@ -9,7 +9,17 @@
             <form action="{{ route('admin/pedidos/modificar', $pedido->id) }}" method="POST">
                 {{ csrf_field() }}
                 <input type="text" name="fecha"  value="{{ $pedido->fecha }}" />
+                @if($errors->has('fecha'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('fecha') }}</strong>
+                    </span>
+                @endif
                 <input type="email" name="email" value="{{ $pedido->user->email }}" />
+                @if($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
 
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>

@@ -9,7 +9,17 @@
             <form action="{{ route('admin/categorias/modificar', $categoria->id) }}" method="POST">
                 {{ csrf_field() }}
                 <input type="text" name="nombre"  value="{{ $categoria->nombre }}" />
+                @if($errors->has('nombre'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('nombre') }}</strong>
+                    </span>
+                @endif
                 <input type="text" name="descripcion" value="{{ $categoria->descripcion }}" />
+                @if($errors->has('descripcion'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('descripcion') }}</strong>
+                    </span>
+                @endif
 
                 <button type="submit" class="btn btn-default">Guardar</button>
             </form>
