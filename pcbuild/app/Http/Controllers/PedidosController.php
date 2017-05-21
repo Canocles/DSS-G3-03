@@ -63,6 +63,9 @@ class PedidosController extends Controller
     public function update(Request $request, $id){
         $pedido = Pedido::findOrFail($id);
         $usuario = User::where('email', '=', $request->email)->first();
+        $this->validate($request, [
+            'fecha' => 'required|date_format:d/m/Y',
+        ]);
         if ($usuario != NULL) {
             $pedido->fecha = $request->input('fecha');
             $pedido->user_id = $usuario->id;

@@ -33,6 +33,9 @@ class ProductosController extends Controller
 	}
 
     public function buscarNombre(Request $request){
+		$this->validate($request, [
+            'producto' => 'required|max:60',
+        ]);
 		$busqueda=$request->input('producto');
 		$productos = Producto::where('nombre', 'like', '%'.$busqueda.'%')->paginate(6);
 		$categorias=Categoria::orderBy('nombre', 'asc')->get();
@@ -40,6 +43,9 @@ class ProductosController extends Controller
 	   	return view('index',compact('productos','categorias'));
     }
 	public function buscarPrecio(Request $request){
+		$this->validate($request, [
+            'precio' => 'required|integer|max:60',
+        ]);
 		$precio = $request->input('precio');
 		if($precio == "desc"){//0-> mayor a menor (desc)
 			$productos = Producto::where('precio', '>', 0)->orderBy('precio', 'desc')->paginate(6);
@@ -84,8 +90,14 @@ class ProductosController extends Controller
     
     //Create
     public function create(Request $request){
+		$this->validate($request, [
+            'nombre' => 'required|max:60',
+            'descripcion' => 'required|max:255',
+			'precio' => 'required|integer',
+			'file' => 'required',
+			'categoria' => 'required',
+        ]);
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
-
 		$producto = new Producto();
 		$producto->nombre = $request->input('nombre');
 		$producto->precio = $request->input('precio');
@@ -105,6 +117,15 @@ class ProductosController extends Controller
 	
 	//Update
 	public function update(Request $request, $id){
+
+		$this->validate($request, [
+            'nombre' => 'required|max:60',
+            'descripcion' => 'required|max:255',
+			'precio' => 'required|integer',
+			'file' => 'required',
+			'categoria' => 'required',
+        ]);
+		
 		$categoria = Categoria::where('nombre', $request->input('categoria'))->first();
 		$producto = Producto::findOrFail($id);
 		

@@ -29,6 +29,10 @@ class CategoriasController extends Controller
     
     public function update(Request $request, $id){
         $categoria = Categoria::find($id);
+        $this->validate($request, [
+            'nombre' => 'required|max:60',
+            'descripcion' => 'required|max:255',
+        ]);
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();
@@ -38,6 +42,10 @@ class CategoriasController extends Controller
 
     public function create(Request $request){
         $categoria = new Categoria();
+        $this->validate($request, [
+            'nombre' => 'required|max:60',
+            'descripcion' => 'required|max:255',
+        ]);
         $categoria->nombre = $request->input('nombre');
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();

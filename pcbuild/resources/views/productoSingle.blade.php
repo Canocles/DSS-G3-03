@@ -30,9 +30,8 @@
 					<div class="product-information"><!--/product-information-->
 						<h2>{{$producto->nombre}}</h2>
 						<p>{{$producto->descripcion}}</p>
-						<img src="{{ asset('images/product-details/rating.png') }}" alt="" />
 						<span>
-							<span>{{$producto->precio}}</span>
+							<span>{{$producto->precio}} €</span>
 							<a href="{{ route('carrito-add', $producto->id) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Añadir al carrito</a>
 						</span>
 						<a href=""><img src="{{ asset('images/product-details/share.png') }}" class="share img-responsive"  alt="" /></a>

@@ -28,6 +28,16 @@ class UsuariosController extends Controller
 	}
 
     public function update(Request $request, $id){
+
+        $this->validate($request, [
+            'nombre' => 'required|max:60',
+            'apellidos' => 'required|max:60',
+			'direccion' => 'required',
+			'telefono' => 'required|integer',
+			'fechaNacimiento' => 'required|date_format:d/m/Y',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
         $usuario = User::find($id);
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
@@ -43,6 +53,14 @@ class UsuariosController extends Controller
 
     public function create(Request $request){
         $usuario = new User();
+        $this->validate($request, [
+            'nombre' => 'required|max:60',
+            'apellidos' => 'required|max:60',
+			'direccion' => 'required',
+			'telefono' => 'required|integer',
+			'fechaNacimiento' => 'required|date_format:d/m/Y',
+            'email' => 'required|email',
+        ]);
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->direccion = $request->input('direccion');
@@ -64,6 +82,14 @@ class UsuariosController extends Controller
 
     public function updateUser (Request $request, $id) {
         $usuario = User::find($id);
+
+        $this->validate($request, [
+            'nombre' => 'required|max:60',
+            'apellidos' => 'required|max:60',
+			'telefono' => 'required|integer',
+			'fechaNacimiento' => 'required|date_format:d/m/Y',
+            'email' => 'required|email',
+        ]);
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->email = $request->input('email');
@@ -74,6 +100,10 @@ class UsuariosController extends Controller
     }
 
     public function updateUserDir (Request $request, $id) {
+        $this->validate($request, [
+			'direccion' => 'required',
+			'telefono' => 'required|integer',
+        ]);
         $usuario = User::find($id);
         $usuario->direccion = $request->input('direccion');
         $usuario->telefono = $request->input('telefono');

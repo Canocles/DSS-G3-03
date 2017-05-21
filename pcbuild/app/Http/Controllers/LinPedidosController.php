@@ -35,6 +35,9 @@ class LinPedidosController extends Controller
             ['pedido_id', $pedido_id],
             ['num', $num],
         ])->first();
+        $this->validate($request, [
+            'cantidad' => 'required|integer',
+        ]);
         if ($linpedido != NULL) {
             $linpedido->cantidad = $request->cantidad;
             $linpedido->save();
@@ -44,6 +47,12 @@ class LinPedidosController extends Controller
 
     public function create(Request $request){
         $linpedido = new Linpedido();
+        $this->validate($request, [
+            'num' => 'required|integer',
+            'cantidad' => 'required|integer',
+            'pedido_id' => 'required|unique:pedidos',
+            'producto_id' => 'required|unique:productos'
+        ]);
         $pedido = Pedido::where('id', $request->pedido_id)->first();
         $producto = Producto::where('id', $request->producto_id)->first();
         if ($pedido != NULL && $producto != NULL) {
